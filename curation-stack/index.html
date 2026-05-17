@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Curation Stack · Chapter II · Studio W230</title>
+  <meta name="description" content="Quality infrastructure for user-generated software." />
+  <meta name="author" content="Simone Leonelli" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Curation Stack · Chapter II · Studio W230" />
+  <meta property="og:description" content="Quality infrastructure for user-generated software." />
+  <meta property="og:url" content="https://mustbesimo.github.io/taste-layer/curation-stack/" />
+  <meta property="og:site_name" content="Studio W230 · Legibility Engineering" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@mustbesimo" />
+  <link rel="canonical" href="https://mustbesimo.github.io/taste-layer/curation-stack/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f4efe6'/%3E%3Ccircle cx='50' cy='50' r='22' fill='%23c97b5a'/%3E%3C/svg%3E" />
+  <script>(function(){try{var t=localStorage.getItem('taste-layer-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}}())</script>
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/motion.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="topnav" aria-label="Top navigation">
+  <a class="brand" href="https://w230.net" target="_blank" rel="noopener">Simone Leonelli</a>
+  <span class="meta">v1.0 · May 2026</span>
+  <button class="theme press" type="button" aria-label="Toggle theme">☾ Dark</button>
+</nav>
+<section id="prologue" class="hero-shell">
+  <div class="essay">
+    <a href="../" class="back-link">← Taste Layer · home</a>
+    <div class="eyebrow terra" style="margin-top: 32px;"><span class="num">II</span>Chapter II · Legibility Engineering 002</div>
+    <h1 class="hero-title rise"><span>The Curation Stack.</span></h1>
+    <h1 class="hero-title rise" style="margin-top: 8px;"><span><em class="mark">Quality infrastructure</em> across a marketplace.<span class="caret" aria-hidden="true"></span></span></h1>
+    <p class="hero-sub reveal">When anyone can generate software, discovery collapses. The platform that wins makes quality legible. What luxury brands, YouTube, and Michelin teach us about quality infrastructure for user-generated software.</p>
+    <div class="hero-meta reveal" style="--rd: 220ms;">
+      <span>Simone Leonelli</span><span>Studio W230</span><span>v1.0</span><span>February 2026</span>
+    </div>
+  </div>
+</section>
+<section id="cura-00-section-01">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.i · The convergence</div>
+
+<div class="section-number">01 | The Convergence</div>
+<h2 id="h-section-01">Every Generation Tool Arrives at the Same Problem</h2>
+<p>A new category is forming: <strong>user-generated software (UGS)</strong>. Natural language to runnable apps, published into a shared catalog where discovery, ranking, and reuse are product primitives. The moment you add a marketplace feed, you inherit curation as an infrastructure problem.</p>
+<p>UGS is distinct from internal one-off scripts, private automations without discovery, or traditional open-source repositories. It combines creation democratization with platform-mediated distribution.</p>
+<p>The generation layer is converging fast. Prompt-to-app pipelines are becoming a commodity. The differentiators that matter in 2025 (speed, fidelity, native deployment) will be table stakes by 2027.</p>
+<p>This table documents only publicly observable features as of February 2026. Internal roadmaps and private features are not assessed. Absence from this list does not mean absence from a platform's plans.</p>
+<table class="comp-table">
+<caption style="'JetBrains Mono', monospace; text-align: left; letter-spacing: 0.05em">Platform Landscape: Observed Curation Primitives (Evidence Only)</caption>
+<thead>
+<tr>
+<th scope="col">Platform</th>
+<th scope="col">Product Shape</th>
+<th scope="col">Documented Curation Primitives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://wabi.ai" rel="noopener noreferrer" target="_blank">Wabi</a></td>
+<td>Social-first UGS, persistent identity, remix culture</td>
+<td>Algorithmic feed, remix as product feature, community signals</td>
+</tr>
+<tr>
+<td><a href="https://www.createanything.com" rel="noopener noreferrer" target="_blank">Anything</a></td>
+<td>Full-stack code generation, native mobile + web, App Store deploy</td>
+<td>Code linting, error recovery, user reviews, experts marketplace</td>
+</tr>
+<tr>
+<td><a href="https://replit.com" rel="noopener noreferrer" target="_blank">Replit</a></td>
+<td>Developer-adjacent platform, enterprise controls, SOC2</td>
+<td>Security screening, code review (enterprise tier), featured templates</td>
+</tr>
+<tr>
+<td><a href="https://lovable.dev" rel="noopener noreferrer" target="_blank">Lovable</a></td>
+<td>Design-forward code generation, visual quality emphasis</td>
+<td>Template gallery, curated examples</td>
+</tr>
+<tr>
+<td><a href="https://openai.com/index/introducing-the-gpt-store/" rel="noopener noreferrer" target="_blank">GPT Store</a></td>
+<td>Custom GPTs marketplace, conversational interface, no-code creation</td>
+<td>Policy review, verified builder program, leaderboards, categories</td>
+</tr>
+</tbody>
+</table>
+<p>The pattern: every platform has invested heavily in <strong>generation</strong> infrastructure. Where curation primitives exist, they tend to be narrowly scoped — policy compliance, security screening, editorial picks — rather than systematic quality infrastructure across discovery and lifecycle.</p>
+<div class="thesis-box">
+<p><strong>The core thesis:</strong> In user-generated software marketplaces, the generation engine is converging toward commodity. The curation layer — the infrastructure that makes quality legible, discoverable, and trustworthy — is the durable competitive advantage. Elements of curation exist across platforms (editorial picks, reviews, health checks), but no platform has publicly named a coherent, end-to-end curation architecture as a product layer. The mechanism: quality tiers change user behavior (trust, reduced bounce), ranking changes creator incentives (polish yields visibility), and decay management changes retention (fewer broken first experiences).</p>
+</div>
+
+  </div>
+</section>
+
+<section id="cura-01-section-02" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.ii · The quality arc</div>
+
+<div class="section-number">02 | The YouTube Lesson</div>
+<h2 id="h-section-02">Every UGC Platform Replays the Same Quality Arc</h2>
+<p>YouTube in 2006: anyone can upload video. Massive volume. Discovery by views and virality. No quality signals beyond popularity. The platform was exciting and chaotic and largely unusable for anything serious.</p>
+<p>YouTube in 2016: creator monetization, content policies, algorithmic ranking weighted by watch time and satisfaction, trust and safety teams, verified channels, copyright systems. A decade of quality infrastructure investment. <a href="https://support.google.com/youtube/answer/72851" rel="noopener noreferrer" style="text-decoration: none" target="_blank">[YouTube Partner Program History]</a></p>
+<p>YouTube in 2025: professional-grade content coexists with amateur uploads. Quality tiers are legible. Creators have incentives to invest in production value. The platform succeeded not because it hosted the most video, but because it built the systems that made quality <strong>discoverable</strong>.</p>
+<div class="case-label neutral">Pattern Recognition</div>
+<h4 style="'Space Grotesk', sans-serif">The UGC Quality Arc</h4>
+<div class="quality-arc">
+<div class="phase-card">
+<div class="phase-marker">1</div>
+<div class="phase-body">
+<h4>Volume</h4>
+<p>"Anyone can create." Platform celebrates quantity. Discovery is primitive (recency, popularity). Quality is vibes-based. Early adopters love the chaos.</p>
+</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker">2</div>
+<div class="phase-body">
+<h4>Noise</h4>
+<p>Library grows past manual curation capacity. Broken, abandoned, and low-quality entries dominate discovery. New users bounce. Retention drops.</p>
+</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker">3</div>
+<div class="phase-body">
+<h4>Infrastructure</h4>
+<p>Platform builds quality signals: ratings, editorial picks, creator incentives, algorithmic quality weighting, trust tiers. Discovery improves. Quality becomes a platform feature, not an accident.</p>
+</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker">4</div>
+<div class="phase-body">
+<h4>Professionalization</h4>
+<p>Quality infrastructure enables a creator economy. Top creators invest because the platform rewards quality. The flywheel works.</p>
+</div>
+</div>
+</div>
+<p>Every UGC platform, from YouTube to Etsy to the App Store, has traversed this arc. The ones that invested in quality infrastructure early (Airbnb's trust framework, Spotify's editorial playlists) compressed the timeline.</p>
+
+  </div>
+</section>
+
+<section id="cura-02-section-03">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.iii · What Hermès knows</div>
+
+<div class="section-number">03 | The Luxury Transfer</div>
+<h2 id="h-section-03">What Hermès Knows That Platforms Don't</h2>
+<p>Luxury brands have solved the curation problem for physical goods across centuries. The methodology is precise, systematic, and transferable. It rests on three principles that map directly to software platform quality.</p>
+<h3>Principle 1: The Golden Sample</h3>
+<p>In luxury manufacturing, every production run is evaluated against a <strong>golden sample</strong>, a reference artifact that embodies the quality standard. Not a spec document. Not a checklist. A physical object you can hold, examine, and compare against.</p>
+<p>For user-generated software: the equivalent is a curated set of <strong>reference apps</strong> that define what "excellent" looks like on the platform. Not just featured apps. Architecturally sound, well-designed, maintained, and deeply useful apps that serve as the evaluation benchmark.</p>
+<h3>Principle 2: Separation of Creation and Judgment</h3>
+<p>At Fendi, the artisan who sews a bag never performs the final quality inspection. At Bentley, the engineer who builds a component is not the person who signs off on the finished vehicle. <strong>The system that generates should never be the system that judges.</strong></p>
+<h3>Principle 3: Quality Tiers Are Legible</h3>
+<p>You know a Michelin three-star restaurant is different from a one-star. You know a Hermès Birkin passed different gates than a department store handbag. The quality difference is <strong>visible and legible</strong> to the consumer before purchase.</p>
+<div class="thesis-box">
+<p>Luxury brands don't rely on customers to discover quality through trial and error. They invest in <strong>making quality visible</strong> before the customer commits. This is the infrastructure that UGS platforms are missing.</p>
+</div>
+
+  </div>
+</section>
+
+<section id="cura-03-section-04" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.iv · The L0–L4 curation stack</div>
+
+<div class="section-number">04 | The Architecture</div>
+<h2 id="h-section-04">What a Curation Stack Actually Looks Like</h2>
+<p>Enterprise evaluation (as described in <a href="https://mustbesimo.github.io/tasteinfra/" style="text-decoration: none">The Taste Layer</a>) uses binary gates: pass or fail on correctness, safety, and brand compliance. Platform curation is structurally different. It operates on <strong>gradients</strong>, not binary gates, because the goal is ranking and discovery, not rejection.</p>
+<div class="stack-scroll">
+<div class="stack-pin">
+<div class="diagram">
+<div class="diagram-title">The Curation Stack: Layer Architecture</div>
+<div class="flow-row" data-layer="0">
+<div class="flow-box">L0: Identity &amp; Provenance</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Creator trust tier, app lineage, permission manifest</div>
+</div>
+<div class="flow-row" data-layer="1">
+<div class="flow-box">L1: Functional Integrity</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Does the app work? Load? Handle edge cases?</div>
+</div>
+<div class="flow-row" data-layer="2">
+<div class="flow-box">L2: Design Quality</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Visual coherence, interaction patterns, responsiveness</div>
+</div>
+<div class="flow-row" data-layer="3">
+<div class="flow-box">L3: Utility Depth</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Does it solve a real problem? Is it used repeatedly?</div>
+</div>
+<div class="flow-row" data-layer="4">
+<div class="flow-box accent">L4: Curation Signal</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box accent">Composite quality score, editorial tier, trust badge</div>
+</div>
+</div>
+</div>
+<div class="stack-content">
+<div class="stack-explain" data-layer="0">
+<h4>L0: Identity &amp; Provenance</h4>
+<p>The foundation layer. Every app carries a verified creator identity, a complete fork lineage, and a declared permission manifest. This enables governance (whose app is this?), trust transfer (verified creator badges), and fork safety (did this remix degrade or improve quality?).</p>
+</div>
+<div class="stack-explain" data-layer="1">
+<h4>L1: Functional Integrity</h4>
+<p>Automated health checks at publish and continuously post-deploy. Does the app load? Do buttons trigger responses? Does it handle edge cases gracefully? Error rate monitoring catches decay before users do.</p>
+</div>
+<div class="stack-explain" data-layer="2">
+<h4>L2: Design Quality</h4>
+<p>Measurable through automated heuristics: accessibility score (WCAG compliance), responsive breakpoint pass rate, contrast ratio checks, interaction completeness (percentage of UI elements that respond when activated), and layout anomaly detection. Not subjective taste — design signals that correlate with user trust and task completion.</p>
+</div>
+<div class="stack-explain" data-layer="3">
+<h4>L3: Utility Depth</h4>
+<p>Measured via cohort retention (D1, D7, D30 return rates), session depth, task completion rate, time-to-value (seconds from first open to first meaningful action), and category-normalized benchmarks. A personal CRM used daily by 200 people scores higher than a novelty app opened once by 10,000.</p>
+</div>
+<div class="stack-explain" data-layer="4">
+<h4>L4: Curation Signal</h4>
+<p>The composite layer. Weighted scores from L0–L3 produce a quality signal that powers discovery ranking, tier badges (Reference / Verified / Community / Unrated), and editorial featuring. This is where the Michelin model meets algorithmic scale.</p>
+</div>
+</div>
+</div>
+<p><strong>L0 is marketplace-native infrastructure.</strong> In UGS platforms, provenance isn't decorative: it enables governance (whose app is this?), trust transfer (verified creator badges), and fork safety (did this remix degrade or improve quality?).</p>
+<table class="comp-table">
+<caption style="'JetBrains Mono', monospace; text-align: left; letter-spacing: 0.05em">Architecture Comparison: Enterprise vs Platform Quality Systems</caption>
+<thead>
+<tr>
+<th scope="col">Dimension</th>
+<th scope="col">Enterprise (Taste Layer)</th>
+<th scope="col">Platform (Curation Stack)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decision type</td>
+<td>Binary: ship or block</td>
+<td>Gradient: rank, tier, feature</td>
+</tr>
+<tr>
+<td>Quality owner</td>
+<td>Internal team (Engineering + Legal + Brand)</td>
+<td>Platform + creators + community</td>
+</tr>
+<tr>
+<td>Evaluation timing</td>
+<td>Pre-deployment gate</td>
+<td>Continuous (creation, discovery, usage, decay)</td>
+</tr>
+<tr>
+<td>Failure mode</td>
+<td>Hallucination reaches customer</td>
+<td>Low-quality apps dominate discovery feed</td>
+</tr>
+<tr>
+<td>Economic incentive</td>
+<td>Liability avoidance</td>
+<td>Marketplace trust, retention, creator economy</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+</section>
+
+<section id="cura-04-section-05">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.v · What quality looks like at scale</div>
+
+<div class="section-number">05 | The Signals</div>
+<h2 id="h-section-05">What Quality Looks Like When Everyone Can Create</h2>
+<p>The traditional software quality hierarchy (code quality, test coverage, performance benchmarks) doesn't transfer cleanly to user-generated software. Most UGS apps have no tests, no CI/CD, no code review. The code is generated and opaque. Quality must be inferred from <strong>observable signals</strong>.</p>
+<p><strong>Discovery is a multi-objective ranking function:</strong> quality, freshness, personalization, and safety. The goal is not to block creation, it is to allocate attention under scarcity.</p>
+<div class="tier-grid">
+<div class="tier-card">
+<div class="tier-label">Automated (L1-L2)</div>
+<h4>Functional Signals</h4>
+<p>Load time, error rate, crash frequency, responsive layout, accessibility score, interaction completeness (do all buttons do something?), data persistence, session handling.</p>
+</div>
+<div class="tier-card">
+<div class="tier-label">Behavioral (L3)</div>
+<h4>Usage Signals</h4>
+<p>Return rate (used more than once), session depth, task completion, remix count, share rate, time-to-value (how fast does the user get utility?), active days since creation.</p>
+</div>
+<div class="tier-card">
+<div class="tier-label">Composite (L4)</div>
+<h4>Curation Signals</h4>
+<p>Quality score (weighted composite), editorial selection, creator reputation, category benchmark (best-in-class within type), freshness vs. durability balance.</p>
+</div>
+</div>
+<p>The critical insight: <strong>popularity is not quality</strong>. A viral novelty app with 10,000 uses and a 5% return rate is less valuable to the platform than a personal CRM with 200 users and an 80% weekly return rate. Volume-weighted discovery repeats the YouTube 2006 mistake. Quality-weighted discovery builds the YouTube 2025 flywheel.</p>
+<div class="split">
+<div class="split-card danger">
+<h4>Volume-Weighted Discovery</h4>
+<p>Most downloaded → most visible → more downloads. Novelty dominates. Utility dies in the long tail. Quality creators have no incentive to invest. Feed becomes noise. New users see broken apps, bounce, never return.</p>
+</div>
+<div class="split-card safe">
+<h4>Quality-Weighted Discovery</h4>
+<p>Highest utility → most visible → more sustained usage. Depth rewarded. Creators invest in polish because the platform rewards it. Feed feels curated. New users find useful tools immediately. Retention compounds.</p>
+</div>
+</div>
+<h3>The Ranking Function</h3>
+<p>Discovery is a multi-objective optimization. Here is the scoring function in sketch form:</p>
+<div class="code-block">
+<span class="comment">// Discovery Ranking Function</span><br/><br/>
+<span class="key">QualityScore</span>(app, user, time) =<br/>
+<span class="val">  w1 * Health(app, time)</span><br/>
+<span class="val">  + w2 * Utility(app, cohort)</span><br/>
+<span class="val">  + w3 * Design(app)</span><br/>
+<span class="val">  + w4 * Trust(creator, app_lineage)</span><br/>
+<span class="val">  - w5 * Decay(app, time)</span><br/>
+<span class="val">  - w6 * AbuseRisk(app, creator, traffic)</span><br/><br/>
+<span class="comment">// Weights calibrated via A/B tests on D7 and D30 retention</span><br/>
+<span class="comment">// and user satisfaction. Reviewed quarterly.</span><br/>
+<span class="comment">// Category-specific baselines prevent cross-domain bias.</span><br/>
+<span class="comment">// Exploration budget ensures new apps get cold-start visibility.</span>
+</div>
+
+  </div>
+</section>
+
+<section id="cura-05-section-06" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.vi · Software rots</div>
+
+<div class="section-number">06 | The Decay Problem</div>
+<h2 id="h-section-06">Software Rots. Especially When No One Maintains It.</h2>
+<p>This is the problem that separates user-generated software from user-generated content. A YouTube video from 2012 still plays. A blog post from 2015 still reads. But software decays: APIs change, dependencies break, design patterns age, data schemas drift.</p>
+<p>In a UGS marketplace, apps are created in seconds and abandoned in hours. The platform accumulates <strong>digital debris</strong> at a rate proportional to creation velocity. Without active lifecycle management, the library becomes a graveyard with a fresh coat of paint.</p>
+<div class="case-study">
+<div class="case-label">The Decay Scenario</div>
+<h4>Year One of a UGS Platform</h4>
+<p>Month 1: 1,000 apps created. Most functional. Feed is exciting.<br/>
+      Month 6: 50,000 apps. Dependency drift, API changes, and abandonment begin to degrade the library. Discovery surfaces abandoned apps alongside active ones. User frustration rises.<br/>
+      Month 12: 500,000 apps. A significant percentage are broken or abandoned. The "most popular" feed is dominated by novelty apps with declining utility. Quality apps are buried. Creator motivation drops because effort isn't rewarded. New user experience degrades.<br/><br/>
+<strong>Without quality infrastructure, creation velocity becomes a liability, not an asset.</strong></p>
+</div>
+<h3>Lifecycle Signals</h3>
+<p>A curation stack needs to track app health over time, not just at creation. Signals that matter: last updated, error rate trend (improving or degrading?), creator activity status, dependency health, user-reported issues. Apps should gracefully age out of discovery when they stop working, and resurface when maintained.</p>
+
+  </div>
+</section>
+
+<section id="cura-06-section-07">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.vii · Quality tiers as infrastructure</div>
+
+<div class="section-number">07 | The Michelin Model</div>
+<h2 id="h-section-07">Quality Tiers as Platform Infrastructure</h2>
+<p>Michelin doesn't rate every restaurant. It rates the ones worth attention, using a consistent, independent, expert-driven framework. This is the model that UGS platforms need.</p>
+<p>A quality tier system for user-generated software creates three platform-level benefits simultaneously: <strong>user trust</strong> (I know what I'm getting), <strong>creator incentive</strong> (investment in quality is rewarded with visibility), and <strong>marketplace efficiency</strong> (discovery surfaces the right apps to the right users).</p>
+<div class="diagram">
+<div class="diagram-title">Proposed Quality Tier Framework</div>
+<div class="flow-row">
+<div class="flow-box accent">★★★ Reference</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Golden sample quality. Editorially verified. Maintained. Best-in-category.</div>
+</div>
+<div class="flow-row">
+<div class="flow-box accent">★★ Verified</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Functional, designed, actively used. Automated quality gates passed.</div>
+</div>
+<div class="flow-row">
+<div class="flow-box accent">★ Community</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Functional. Creator-published. Peer-validated through usage and remix.</div>
+</div>
+<div class="flow-row">
+<div class="flow-box accent">Unrated</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">New or untested. Available but not featured in discovery.</div>
+</div>
+</div>
+<p>The tier system is not gatekeeping. It is <strong>legibility</strong>. Users can still create, share, and use any app. But the discovery layer rewards quality, and the tier badges make quality visible before the user commits time and attention.</p>
+<p>This is also the creator monetization path. In YouTube's model, monetization follows quality signals (subscriber count, watch hours, content policies). In UGS, monetization should follow quality tiers. Reference-tier creators earn from their work. Community-tier creators build reputation toward verified status.</p>
+
+  </div>
+</section>
+
+<section id="cura-07-section-08" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.viii · Remix as quality signal</div>
+
+<div class="section-number">08 | The Remix Dimension</div>
+<h2 id="h-section-08">Remix Culture as Quality Signal</h2>
+<p>One feature unique to UGS platforms (especially Wabi) is remix: the ability to fork, modify, and reshare apps. This creates a quality signal that doesn't exist in traditional software or content marketplaces.</p>
+<p><strong>Remix count is a proxy for architectural quality.</strong> An app that gets remixed frequently has a structure worth building on. An app that never gets remixed may be useful but is likely either too niche or too brittle to modify.</p>
+<p>More importantly, remix creates <strong>quality compounding</strong>. Each remix potentially improves the original. The best apps become platforms within the platform, accumulating improvements from the community. This is open-source dynamics applied to personal software.</p>
+<div class="thesis-box">
+<p>The platforms that treat remix as a quality mechanism (rather than just a social feature) will build compounding quality advantages. Remix genealogy, the ability to trace an app's lineage and identify which versions improved versus degraded quality, is a powerful curation signal that no platform currently tracks.</p>
+</div>
+
+  </div>
+</section>
+
+<section id="cura-08-section-09">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.ix · Why &quot;let the community decide&quot; fails</div>
+
+<div class="section-number">09 | The Anti-Pattern</div>
+<h2 id="h-section-09">Why "Let the Community Decide" Fails</h2>
+<p>The default assumption in platform thinking: quality will emerge organically from community engagement. Upvotes, reviews, usage metrics, and social sharing will surface the best apps naturally.</p>
+<p>This assumption has failed in every UGC marketplace that relied on it exclusively.</p>
+<ul class="styled-list">
+<li><strong>App Store (2008-2012):</strong> Fart apps dominated discovery. Apple built editorial curation, "Today" features, and review standards.</li>
+<li><strong>Google Play (2012-2016):</strong> Malware and clones flooded the store. Google invested in Play Protect, automated review, and editorial teams.</li>
+<li><strong>Etsy (2015-2019):</strong> Resellers and mass-produced goods overwhelmed handmade artisans. Etsy built verification, editorial collections, and algorithmic quality signals.</li>
+<li><strong>GPT Store (2024-2025):</strong> Large catalog of custom GPTs, minimal systematic curation infrastructure observable in public product surfaces. Non-featured items have low visibility without direct search. <abbr class="inference-badge" title="Derived from observed product UX behavior, not explicitly stated">[Inference]</abbr></li>
+</ul>
+<p>The failure pattern is consistent: <strong>at scale, volume drowns quality unless the platform actively invests in quality infrastructure</strong>. Community signals are a necessary input to curation, but they are not sufficient. Editorial intelligence, automated quality gates, and tier systems must layer on top.</p>
+<h3>Common Discovery Failure Modes</h3>
+<p>When curation is under-resourced relative to creation velocity, predictable pathologies emerge:</p>
+<table class="comp-table">
+<caption style="'JetBrains Mono', monospace; text-align: left; letter-spacing: 0.05em">Discovery Failure Modes and Mitigation Strategies</caption>
+<thead>
+<tr>
+<th scope="col">Failure Mode</th>
+<th scope="col">Root Cause</th>
+<th scope="col">Observable Signal</th>
+<th scope="col">Mitigation Primitive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broken apps dominate feed</td>
+<td>No health gating at publish or decay detection</td>
+<td>Load failure rate, crash rate trending up</td>
+<td>Publish-time health checks, downrank on failure</td>
+</tr>
+<tr>
+<td>Novelty beats utility</td>
+<td>Popularity proxy (views, upvotes) over depth</td>
+<td>Low weekly_return_ratio despite high creation volume</td>
+<td>Quality-weighted ranking, return-rate boosting</td>
+</tr>
+<tr>
+<td>Clone spam floods categories</td>
+<td>Cheap generation, no uniqueness filter</td>
+<td>High near-duplicate rate, keyword stuffing</td>
+<td>Similarity detection, rate limits, trust tier gating</td>
+</tr>
+<tr>
+<td>Rating inflation / Sybil attacks</td>
+<td>Unverified upvotes, botted engagement</td>
+<td>Spiky engagement patterns, low session depth</td>
+<td>Verified user weighting, behavioral fraud detection</td>
+</tr>
+<tr>
+<td>Badge laundering via forks</td>
+<td>Reputation inheritance on remix</td>
+<td>High abuse reports on forked verified apps</td>
+<td>Badge doesn't transfer, fork must re-qualify</td>
+</tr>
+<tr>
+<td>App rots trust</td>
+<td>Dependency drift, no maintenance incentive</td>
+<td>error_rate_7d_delta trending up, abandonment</td>
+<td>Decay downrank, maintenance rewards</td>
+</tr>
+</tbody>
+</table>
+<p>The a16z thesis for Wabi explicitly expects "professionalization" to emerge organically, comparing to YouTube's arc. But YouTube's professionalization required a decade of active platform investment in quality systems. The organic part was the creator response to those systems, not the systems themselves.</p>
+
+  </div>
+</section>
+
+<section id="cura-09-section-10" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.x · The abuse layer</div>
+
+<div class="section-number">10 | Governance</div>
+<h2 id="h-section-10">The Abuse Layer: Quality Is Not Just Curation</h2>
+<p>A curation stack without a governance layer is incomplete architecture. Quality in a UGS marketplace is not only about surfacing good apps. It is also about preventing malicious, deceptive, or harmful ones from reaching users at all.</p>
+<p>When any user can generate software through natural language, the attack surface expands beyond traditional app store threats. The generation layer itself becomes an abuse vector.</p>
+<h3>Platform-Specific Threats</h3>
+<ul class="styled-list">
+<li><strong>Prompt injection via app generation:</strong> Malicious prompts that embed data exfiltration, credential harvesting, or phishing interfaces into generated apps.</li>
+<li><strong>Clone spam:</strong> Automated generation of near-identical apps to flood discovery, drown organic apps, and game ranking signals.</li>
+<li><strong>Impersonation apps:</strong> Apps that mimic established brands, services, or creators to harvest trust or redirect users.</li>
+<li><strong>Data exfiltration:</strong> Generated apps that request permissions or collect user data beyond their stated function.</li>
+<li><strong>Adversarial remixing:</strong> Forking a trusted app and injecting harmful modifications that inherit the original's reputation signals.</li>
+</ul>
+<p>These threats are not hypothetical; every major UGC marketplace at scale has faced analogous attack patterns. The governance layer must operate as an independent system from the curation layer, with distinct ownership, escalation paths, and enforcement mechanisms. Curation answers "is this good?" Governance answers "is this safe?"</p>
+
+  </div>
+</section>
+
+<section id="cura-10-section-11">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.xi · The white space</div>
+
+<div class="section-number">11 | The Opportunity</div>
+<h2 id="h-section-11">The White Space Is Real and Time-Bound</h2>
+<p>Based on publicly available positioning (checked public docs, marketing surfaces, and product UX as of Feb 2026), no major UGS platform appears to publicly present systematic curation infrastructure as a named product layer. <abbr class="inference-badge" title="Derived from multiple evidence points, not explicitly stated by platform">[Inference]</abbr> This is not because the problem is invisible. It is because the generation race is consuming all available engineering attention.</p>
+<p>The window is specific: <abbr class="inference-badge" title="Forward-looking claim, not yet validated">[Hypothesis]</abbr> Between now and the point where library size exceeds manual curation capacity (plausibly within the next 1-2 growth cycles at current creation velocity), the curation architecture decisions will determine which platforms build durable marketplace trust and which drown in their own output.</p>
+<div class="prediction">
+<div class="prediction-label">Falsifiable Prediction</div>
+<p>By December 2027, at least one major UGS platform will have a named, public-facing quality tier system (analogous to Michelin stars, App Store editorial picks, or Airbnb Superhost) as a core product feature. The platform that builds it first will have measurably better D30 retention (percentage of new users active 30 days after first session) than competitors without it.</p>
+<p>If this doesn't happen, the UGS category may not survive as a distinct product category, because undifferentiated app generation will commoditize into a feature of existing platforms (ChatGPT, Claude, general-purpose AI assistants).</p>
+</div>
+<div class="prediction">
+<div class="prediction-label">Near-Term Prediction (Testable Now)</div>
+<p>Any UGS platform that adds publish-time health checks and decay-based downranking will see broken-app impressions in discovery drop within 30 days, with a corresponding improvement in D7 retention. This requires no algorithmic sophistication — just a load test on publish and an error rate monitor on a cron job.</p>
+</div>
+<h3>What Would Falsify This Thesis</h3>
+<ul class="styled-list">
+<li><strong>Generation quality becomes so high that curation is unnecessary.</strong> Every generated app is excellent by default. Possible but unlikely given current model limitations and the subjective nature of "quality" in personal software.</li>
+<li><strong>Users don't care about quality.</strong> The "disposable software" thesis wins: apps are used once and discarded, so durability and quality don't matter. This would mean UGS platforms compete purely on generation speed.</li>
+<li><strong>AI-native curation emerges as a commodity.</strong> Foundation model providers ship curation intelligence as a built-in feature, eliminating the need for platform-specific quality infrastructure.</li>
+</ul>
+
+  </div>
+</section>
+
+<section id="cura-11-section-12" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.xii · Minimum Viable Curation Stack</div>
+
+<div class="section-number">12 | The Implementation</div>
+<h2 id="h-section-12">Minimum Viable Curation Stack</h2>
+<p>For a UGS platform founder reading this on Monday morning, here is the minimum infrastructure that creates a quality advantage.</p>
+<div class="code-block">
+<span class="comment">// Minimum Viable Curation Stack (MVCS)</span><br/><br/>
+<span class="key">LAYER 1: Automated Health</span> <span class="comment">// Week 1-2</span><br/>
+<span class="val">  - Load test every app on publish (pass/fail)</span><br/>
+<span class="val">  - Interaction completeness check (buttons, forms, navigation)</span><br/>
+<span class="val">  - Responsive layout verification</span><br/>
+<span class="val">  - Error rate monitoring post-publish</span><br/><br/>
+<span class="key">LAYER 2: Usage Intelligence</span> <span class="comment">// Week 3-4</span><br/>
+<span class="val">  - Return rate tracking (used &gt; 1 time = signal)</span><br/>
+<span class="val">  - Session depth (time spent, actions taken)</span><br/>
+<span class="val">  - Remix genealogy (track forks and improvements)</span><br/>
+<span class="val">  - Decay detection (error rate increase over time)</span><br/><br/>
+<span class="key">LAYER 3: Quality Score</span> <span class="comment">// Week 5-6</span><br/>
+<span class="val">  - Composite score:</span><br/>
+<span class="val">    health_weight * health_signal</span><br/>
+<span class="val">    + usage_weight * retention_signal</span><br/>
+<span class="val">    + design_weight * heuristic_score</span><br/>
+<span class="val">    + freshness_decay_factor</span><br/>
+<span class="comment">    // weights calibrated via A/B retention experiments</span><br/>
+<span class="comment">    // reviewed quarterly against user satisfaction metrics</span><br/>
+<span class="val">  - Quality-weighted discovery feed (replace pure recency/popularity)</span><br/>
+<span class="val">  - Tier badges: Reference / Verified / Community / Unrated</span><br/><br/>
+<span class="key">LAYER 4: Editorial Intelligence</span> <span class="comment">// Week 7-8</span><br/>
+<span class="val">  - Golden sample library (10-20 reference apps per category)</span><br/>
+<span class="val">  - Weekly editorial picks (human judgment on top of algorithmic signals)</span><br/>
+<span class="val">  - Creator reputation score (quality track record across apps)</span><br/>
+<span class="val">  - Category benchmarking (best workout tracker, best CRM, best journal)</span><br/>
+</div>
+<h3>End-to-End Production Trace</h3>
+<p>One app's journey through the stack, from creation to maturity:</p>
+<div class="code-block">
+<span class="comment">// Production trace: single app lifecycle</span><br/><br/>
+<span class="key">PUBLISH (Day 0)</span><br/>
+<span class="val">  → L0: Creator identity verified, permission manifest declared</span><br/>
+<span class="val">  → L1: Load test (pass/fail), interaction completeness check</span><br/>
+<span class="val">  → If L1 fails: blocked from discovery, creator notified</span><br/>
+<span class="val">  → Initial tier: Unrated</span><br/><br/>
+<span class="key">DISCOVERY (Day 1-7)</span><br/>
+<span class="val">  → Cold-start exploration budget: app shown to sample cohort</span><br/>
+<span class="val">  → Quality score computed: Health + Design + Trust(creator_history)</span><br/>
+<span class="val">  → Ranked in category feed</span><br/><br/>
+<span class="key">USAGE (Day 7-30)</span><br/>
+<span class="val">  → L3 signals accumulate: return_rate, session_depth, time_to_value</span><br/>
+<span class="val">  → Score recomputed with behavioral data</span><br/>
+<span class="val">  → If weekly_return_ratio &gt; threshold → Community tier</span><br/><br/>
+<span class="key">MATURITY (Day 30-180)</span><br/>
+<span class="val">  → Sustained retention + quality → Verified tier eligible</span><br/>
+<span class="val">  → Editorial review → Reference tier candidate</span><br/><br/>
+<span class="key">DECAY WATCH (Ongoing)</span><br/>
+<span class="val">  → error_rate_7d_delta trending up → score penalized</span><br/>
+<span class="val">  → dependency_health_idx drops → creator alerted</span><br/>
+<span class="val">  → If abandoned + degraded → gracefully aged out of discovery</span>
+</div>
+<p>Eight weeks. A small team. The foundation of a curation moat that compounds as the library grows. Every week of delay at current creation velocity adds thousands of uncurated apps to the discovery problem.</p>
+
+  </div>
+</section>
+
+<section id="cura-12-section-13">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.xiii · Concrete signals</div>
+
+<div class="section-number">13 | Telemetry</div>
+<h2 id="h-section-13">Concrete Signals: What You Actually Measure</h2>
+<p>Abstract quality frameworks are useless without measurable telemetry. These are the signals a curation stack ingests, each mappable to a database column and a dashboard row.</p>
+<div class="code-block">
+<span class="comment">// Telemetry Schema: Core Curation Signals</span><br/><br/>
+<span class="key">app_load_success_rate</span>   <span class="comment">// % of sessions where app loads without error</span><br/>
+<span class="key">error_rate_7d_delta</span>    <span class="comment">// change in error rate over trailing 7 days (decay detection)</span><br/>
+<span class="key">weekly_return_ratio</span>    <span class="comment">// users who return within 7 days / total users</span><br/>
+<span class="key">session_depth_p50</span>     <span class="comment">// median actions per session (engagement proxy)</span><br/>
+<span class="key">remix_depth_score</span>     <span class="comment">// generations of forks from this app (compounding signal)</span><br/>
+<span class="key">dependency_health_idx</span> <span class="comment">// % of external APIs/integrations still responding</span><br/>
+<span class="key">creator_maint_freq</span>    <span class="comment">// days since creator last updated or responded to feedback</span><br/>
+<span class="key">time_to_value_p50</span>     <span class="comment">// median seconds from first open to first meaningful action</span><br/>
+<span class="key">interaction_completeness</span><span class="comment">// % of UI elements that trigger a response when activated</span><br/>
+<span class="key">curation_score_version</span> <span class="comment">// allows historical re-scoring when weight models update</span><br/>
+</div>
+<p>Ten signals. Each observable, each automatable, each meaningful in isolation and composite. A platform team could instrument these in a sprint and begin building quality intelligence immediately.</p>
+
+  </div>
+</section>
+
+<section id="cura-13-section-14" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.xiv · Build it before you need it</div>
+
+<div class="section-number">14 | The Claim</div>
+<h2 id="h-section-14">Build the Quality Layer Before You Need It</h2>
+<p>The platforms that build curation infrastructure early are building durable competitive advantages. The ones that wait will spend 10x the resources retroactively sorting through a library that has already trained users to expect noise.</p>
+<p>This is the same lesson luxury brands learned over centuries, compressed into a platform lifecycle. Quality systems don't scale retroactively. They must be architectural, designed into the platform from early days, not bolted on after the feed is already broken.</p>
+<div class="thesis-box">
+<p>Generation is the cost of entry. Curation is the cost of survival. The platforms that confuse volume for value will not outlast the ones that invest in making quality legible, discoverable, and rewarding for creators.</p>
+</div>
+<p>The curation problem is not new. It's the same problem Hermès, Michelin, YouTube, and Airbnb solved in their respective domains. The tools are different. The principles are identical. Systematic evaluation, independent judgment, legible quality signals, and incentive alignment between platform, creator, and user.</p>
+<p>The question isn't whether UGS platforms will need a curation stack. It's whether they'll build it before the library outgrows their ability to retrofit it.</p>
+
+  </div>
+</section>
+
+<section id="cura-14-section-refs">
+  <div class="essay prose">
+    <div class="eyebrow sage">§ · Sources &amp; further reading</div>
+
+<div class="section-number">References</div>
+<h2 id="h-section-refs">Sources &amp; Further Reading</h2>
+<h3>Primary Sources (Platform Pages &amp; Documentation)</h3>
+<table class="comp-table">
+<thead>
+<tr>
+<th scope="col">Platform</th>
+<th scope="col">Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wabi</td>
+<td><a href="https://wabi.ai" rel="noopener noreferrer" target="_blank">wabi.ai</a> | Personal software platform for mini‑apps</td>
+</tr>
+<tr>
+<td>Anything</td>
+<td><a href="https://www.createanything.com" rel="noopener noreferrer" target="_blank">createanything.com</a> | AI app builder, formerly Create.xyz</td>
+</tr>
+<tr>
+<td>Replit</td>
+<td><a href="https://replit.com" rel="noopener noreferrer" target="_blank">replit.com</a> | Developer platform with AI generation</td>
+</tr>
+<tr>
+<td>Lovable</td>
+<td><a href="https://lovable.dev" rel="noopener noreferrer" target="_blank">lovable.dev</a> | Design-forward AI code generation</td>
+</tr>
+<tr>
+<td>GPT Store</td>
+<td><a href="https://openai.com/index/introducing-the-gpt-store/" rel="noopener noreferrer" target="_blank">openai.com/gpt-store</a> | Custom GPT marketplace announcement</td>
+</tr>
+</tbody>
+</table>
+<h3>Secondary Sources (Press &amp; Commentary)</h3>
+<table class="comp-table">
+<thead>
+<tr>
+<th scope="col">Topic</th>
+<th scope="col">Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wabi Funding</td>
+<td><a href="https://techcrunch.com/2025/11/05/replika-founder-raises-20m-pre-seed-for-wabi-the-youtube-of-apps/" rel="noopener noreferrer" target="_blank">TechCrunch</a> | "Replika founder raises $20M pre-seed for Wabi" (Nov 2025)</td>
+</tr>
+<tr>
+<td>Anything Community</td>
+<td><a href="https://www.producthunt.com/products/anything-2" rel="noopener noreferrer" target="_blank">Product Hunt</a> | Anything launch and community discussion</td>
+</tr>
+</tbody>
+</table>
+<h3>Analog References (Quality System Precedents)</h3>
+<table class="comp-table">
+<thead>
+<tr>
+<th scope="col">Domain</th>
+<th scope="col">Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enterprise Evaluation</td>
+<td><a href="https://mustbesimo.github.io/tasteinfra/" rel="noopener noreferrer" target="_blank">The Taste Layer</a> | Companion manifesto on enterprise AI evaluation infrastructure</td>
+</tr>
+<tr>
+<td>YouTube Quality Arc</td>
+<td>Based on publicly documented YouTube Partner Program history, Creator monetization policy changes (2007-2025), and <a href="https://support.google.com/youtube/answer/72851" rel="noopener noreferrer" target="_blank">YouTube Partner Program official documentation</a></td>
+</tr>
+<tr>
+<td>Michelin Guide</td>
+<td>Quality tier methodology synthesized from public Michelin Guide methodology descriptions and restaurant industry analysis</td>
+</tr>
+<tr>
+<td>Luxury Manufacturing</td>
+<td>Golden sample methodology derived from author's 16 years in luxury brand quality systems (Fendi, Bentley, Porsche)</td>
+</tr>
+</tbody>
+</table>
+<h3>Evidence Label Legend</h3>
+<div>
+<p><strong>[Evidence]</strong> – Directly supported by linked public documentation, product UI, press coverage, or official platform materials.</p>
+<p><strong>[Inference]</strong> – Derived from multiple evidence points, observed product behavior, or publicly available positioning. Not explicitly stated by the platform but reasonably concluded from available information.</p>
+<p><strong>[Hypothesis]</strong> – Forward-looking claim, prediction, or proposed framework not yet validated. Presented as testable thesis.</p>
+<p><strong>[Unverified]</strong> – Specific data point (e.g., a number or date) that cannot be confirmed from a stable, citable source. Included for directional context only.</p>
+</div>
+<p>
+<strong>Platform assessments:</strong> Based on publicly available positioning, documentation, and press coverage as of February 2026. Internal product roadmaps may differ from public positioning. All comparative claims are labeled with evidence type to maintain analytical transparency.</p>
+<p>
+<strong>Research method:</strong> Evidence sources include platform landing pages, press releases, public API documentation, observed UX behavior (as of Feb 2026), investor announcements, published user reviews, and publicly documented policy frameworks. Claims not directly verifiable from these sources are explicitly labeled <abbr class="inference-badge" title="Derived from multiple evidence points, not explicitly stated by platform">[Inference]</abbr> or <abbr class="inference-badge" title="Forward-looking claim, not yet validated">[Hypothesis]</abbr> throughout the document.
+    </p>
+
+  </div>
+</section>
+<footer>
+  <span>© 2026 <span class="sig">Studio W230</span> · Legibility Engineering</span>
+  <span>The Taste Layer · v1.0 · May 2026</span>
+  <span><a href="https://github.com/MustBeSimo/taste-layer">Source</a></span>
+</footer>
+<script src="../js/app.js"></script>
+</body>
+</html>

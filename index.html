@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Taste Layer · Two Chapters on Quality Infrastructure for AI</title>
+  <meta name="description" content="Generation is commoditizing. Evaluation is scarce." />
+  <meta name="author" content="Simone Leonelli" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Taste Layer · Two Chapters on Quality Infrastructure for AI" />
+  <meta property="og:description" content="Generation is commoditizing. Evaluation is scarce." />
+  <meta property="og:url" content="https://mustbesimo.github.io/taste-layer/" />
+  <meta property="og:site_name" content="Studio W230 · Legibility Engineering" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@mustbesimo" />
+  <link rel="canonical" href="https://mustbesimo.github.io/taste-layer/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f4efe6'/%3E%3Ccircle cx='50' cy='50' r='22' fill='%23c97b5a'/%3E%3C/svg%3E" />
+  <script>(function(){try{var t=localStorage.getItem('taste-layer-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}}())</script>
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/motion.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="topnav" aria-label="Top navigation">
+  <a class="brand" href="https://w230.net" target="_blank" rel="noopener">Simone Leonelli</a>
+  <span class="meta">v1.0 · May 2026</span>
+  <button class="theme press" type="button" aria-label="Toggle theme">☾ Dark</button>
+</nav>
+<section id="top" class="hero-shell">
+  <div class="essay">
+    <div class="eyebrow terra"><span class="num">·</span>Studio W230 · Legibility Engineering</div>
+    <h1 class="hero-title rise"><span>Generation is commoditizing.</span></h1>
+    <h1 class="hero-title rise" style="margin-top: 8px;"><span><em class="mark">Evaluation</em> is scarce.<span class="caret" aria-hidden="true"></span></span></h1>
+    <p class="hero-sub reveal">Two essays. One thesis at two altitudes. The first is what a company needs to ship AI without becoming the case study. The second is what a platform needs when anyone can publish software.</p>
+    <div class="hero-meta reveal" style="--rd: 220ms;">
+      <span>Two chapters</span><span>~45 min read</span><span>May 2026</span><span>v1.0</span>
+    </div>
+  </div>
+</section>
+
+<section id="contents" class="dim">
+  <div class="essay">
+    <div class="eyebrow"><span class="num">§</span>Contents</div>
+    <h2 class="rise"><span>Two essays.</span></h2>
+    <p class="lede reveal" style="margin-top: 20px;">One thesis at two altitudes. Read either on its own — or scroll on for the full deep-read in sequence.</p>
+    <div class="contents-grid stagger">
+      <a href="taste-layer/" class="box blue chapter-card">
+        <span class="label-s">Chapter I · ~22 min</span>
+        <span class="value">The Taste Layer.</span>
+        <span class="small">Quality gates inside the enterprise. The bottleneck shifts from generation to evaluation — and what an organization actually builds when it owns the consequences.</span>
+        <span class="arrow">Read Chapter I &nbsp;→</span>
+      </a>
+      <a href="curation-stack/" class="box sage chapter-card">
+        <span class="label-s">Chapter II · ~23 min</span>
+        <span class="value">The Curation Stack.</span>
+        <span class="small">Quality infrastructure across a marketplace. When anyone can publish software, discovery collapses unless the platform makes quality legible.</span>
+        <span class="arrow">Read Chapter II &nbsp;→</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="chapter-mark">
+  <div class="essay">
+    <div class="roman reveal">I</div>
+    <div class="ch-name reveal" style="--rd: 80ms;">— The Taste Layer —</div>
+    <div class="ch-title reveal" style="--rd: 160ms;">Quality gates inside the enterprise</div>
+  </div>
+</section>
+<section id="taste-00-title">
+  <div class="essay prose">
+    <div class="eyebrow blue">Prologue · Studio W230</div>
+
+<div>
+
+<h1>
+<strong>Generation is Commoditizing.</strong>
+<br/>
+<strong style="display: block">Evaluation is Scarce.</strong>
+</h1>
+<p style="line-height: 1.4">
+            When generation gets cheap, <span>evaluation becomes the edge.</span>
+</p>
+<div>
+<p style="text-transform: uppercase; letter-spacing: 0.05em">
+                The Taste Layer = Quality Gates for AI Outputs
+            </p>
+<p style="line-height: 1.6">
+                Three technical capabilities: <strong>Correctness</strong> (accuracy, factuality) + <strong>Safety &amp; Compliance</strong> (PII, regulations) + <strong>Brand Quality</strong> (tone, style, trust)
+            </p>
+</div>
+<p style="letter-spacing: 0.05em">
+            Modern AI excels at fluency—but <span>fluency isn't accuracy</span>.
+        </p>
+<p style="max-width: 600px; line-height: 1.6">
+<strong>Simone Leonelli</strong> — 16 years building quality systems for luxury brands where defects were unacceptable (Fendi, Bentley, Porsche). After seeing enterprises struggle with AI quality, I spent 2024-2025 bridging design systems thinking and ML evaluation. <br/>Now building AI evaluation infrastructure for high-stakes enterprise applications.
+        </p>
+<div style="display: flex">
+<span>January 2026</span><span>v3.2</span>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-01-thesis" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.i · The warning</div>
+
+<div>
+
+<h2>The Hidden Cost of "Generation at Scale"</h2>
+<div class="callout callout">
+<p style="line-height: 1.6">
+<strong style="display: block">CASE STUDY: Moffatt v. Air Canada (2024)</strong>
+                A simple customer support chatbot without guardrails promised a refund policy that didn't exist. When sued, the airline argued the AI was a "separate legal entity" responsible for its own actions. <br/><br/>
+                The tribunal rejected this. The company was held liable for the hallucination—specifically for <strong>negligent misrepresentation via incorrect policy guidance</strong>. <br/>
+<strong>Lesson:</strong> This case involved a basic chatbot without modern evaluation layers. <span class="accent">It demonstrates what happens when AI outputs reach customers without systematic quality checks.</span>
+</p>
+<p>
+                Source: <a href="https://www.mccarthy.ca/en/insights/blogs/techlex/moffatt-v-air-canada-misrepresentation-ai-chatbot" style="text-decoration: none" target="_blank">McCarthy Tétrault Legal Analysis</a>
+</p>
+</div>
+<div class="callout">
+<p style="line-height: 1.4">
+                I've analyzed 10+ enterprise AI deployments across healthcare, finance, and B2B services.
+                <br/><br/>
+<span>The majority lacked dedicated evaluation gates.</span>
+</p>
+<p>
+                Observation from consulting engagements: "Evaluation layer" defined as systematic gating of outputs before customer delivery, with defined metrics, ownership, and escalation paths.
+            </p>
+</div>
+<div class="callout">
+<p style="line-height: 1.7">
+<strong style="display: block">The Industry Shift:</strong>
+                The bottleneck in AI development has shifted from "can we generate this?" to "can we trust this?" Evaluation infrastructure is the unsexy but critical layer that separates production-ready AI from expensive demos.
+            </p>
+</div>
+<div class="callout">
+<p style="line-height: 1.7">
+<strong style="display: block">What "Taste Layer" Actually Means:</strong>
+<strong>Taste Layer = Measurable Quality Constraints + Automated Gates + Audit Trails.</strong><br/>
+                It is the infrastructure that makes AI outputs shippable—not subjective aesthetics, but rigorous adherence to policy, correctness, and brand compliance.
+            </p>
+<div>
+<div>
+<strong>INPUTS</strong><br/>
+                    Customer queries, draft code, marketing copy, support replies.
+                </div>
+<div>
+<strong>OUTPUTS</strong><br/>
+                    Pass/Fail signal, confidence score, audit trail, auto-fix action.
+                </div>
+<div>
+<strong>INTEGRATION</strong><br/>
+                    API Gateway, CI/CD Pipeline, Model Router.
+                </div>
+</div>
+<div>
+<strong style="text-transform: uppercase; letter-spacing: 0.5px">The Translation Layer:</strong>
+<ul style="list-style: none; display: flex; flex-wrap: wrap">
+<li><span>Brand Team calls it:</span> <strong>Taste</strong></li>
+<li><span>Risk Team calls it:</span> <strong>Governance</strong></li>
+<li><span>Engineering calls it:</span> <strong>Quality Gates</strong></li>
+</ul>
+</div>
+</div>
+<p style="line-height: 1.7">
+<strong>The Common Failure Mode: Ad-Hoc Evaluation</strong><br/><br/>
+            Many organizations rely on "vibes-based" spot checks rather than systematic gating. The AI team tracks velocity, but ownership of <em>accuracy</em> falls through the cracks between Engineering (who build pipelines) and Product/Legal (who define quality). <br/><br/>
+<strong>Without a dedicated evaluation layer, the customer becomes the QA team.</strong>
+</p>
+<p>The AI industry delivered "generation at scale."</p>
+<p>But without quality checks, <strong>volume creates liability, not value.</strong></p>
+<p>We are living through a <strong>constraint shift</strong>: generation got cheap and fast, evaluation stayed expensive and slow.</p>
+<div class="two-col" style="align-items: stretch">
+<div class="box" style="opacity: 1">
+<div class="box-label">The Risk</div>
+<div class="box-value">Deploying Without Quality Checks</div>
+<div class="box-small">"It looks fine to me."</div>
+</div>
+<div class="box box terra" style="opacity: 1">
+<div class="box-label">The Solution</div>
+<div class="box-value">The Taste Layer</div>
+<div class="box-small">"We can prove it's safe."</div>
+</div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-02-inversion">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.ii · The inversion</div>
+
+<div>
+
+<h2>Stated precisely</h2>
+<p>"Marginal cost of generation is collapsing" is directionally right, but technically sloppy.</p>
+<p><strong>The truth is scarier:</strong></p>
+<ul>
+<li><strong>Marginal cost of generating candidates</strong> is collapsing (text, code, images, drafts, variants)</li>
+<li><strong>Marginal cost of validating correctness, safety, brand fit, and real-world impact</strong> is NOT collapsing. It is the new bottleneck.</li>
+</ul>
+<div class="diagram-container">
+<div class="diagram-title">Cost Asymmetry: Generation vs. Evaluation (Log Scale)*</div>
+<svg style="width: 100%; max-width: 700px" viewbox="0 0 700 280">
+<defs><pattern height="40" id="grid" patternunits="userSpaceOnUse" width="50"><path d="M 50 0 L 0 0 0 40" fill="none" stroke="#333" stroke-width="0.5"></path></pattern></defs>
+<rect fill="url(#grid)" height="200" opacity="0.3" width="580" x="70" y="30"></rect>
+<line stroke="#555" stroke-width="1" x1="70" x2="650" y1="230" y2="230"></line><line stroke="#555" stroke-width="1" x1="70" x2="70" y1="30" y2="230"></line>
+<text fill="#666" font-size="10" text-anchor="end" x="60" y="45">$1000</text><text fill="#666" font-size="10" text-anchor="end" x="60" y="105">$100</text><text fill="#666" font-size="10" text-anchor="end" x="60" y="165">$10</text><text fill="#666" font-size="10" text-anchor="end" x="60" y="225">$1</text>
+<text fill="#666" font-size="10" x="70" y="250">2020</text><text fill="#666" font-size="10" text-anchor="middle" x="260" y="250">2024</text><text fill="#666" font-size="10" text-anchor="middle" x="455" y="250">2028</text><text fill="#666" font-size="10" text-anchor="end" x="650" y="250">2032</text>
+<path d="M 70 50 Q 200 70, 350 150 Q 500 200, 650 215" fill="none" id="gen-path" stroke="#666" stroke-dasharray="8,4" stroke-width="2"></path>
+<text fill="#666" font-size="11" x="580" y="208">Generation</text>
+<path d="M 70 70 Q 200 75, 350 90 Q 500 110, 650 120" fill="none" id="eval-path" stroke="#f59e0b" stroke-width="3"></path>
+<text fill="#f59e0b" font-size="11" x="580" y="108">Evaluation</text>
+<line stroke="#f59e0b" stroke-dasharray="4,4" stroke-width="1" x1="455" x2="455" y1="100" y2="185"></line><text fill="#f59e0b" font-size="10" font-weight="500" x="465" y="148">← THE DANGER ZONE: Where speed kills quality</text>
+<line opacity="0.5" stroke="#f59e0b" stroke-width="1" x1="260" x2="260" y1="30" y2="230"></line><text fill="#f59e0b" font-size="10" font-weight="600" text-anchor="middle" x="260" y="22">TODAY</text>
+</svg>
+</div>
+<p>
+            *Directional trends based on LLM API pricing (Epoch AI, 2020-2025) and enterprise evaluation infrastructure costs. Projections beyond 2025 are directional estimates, not forecasts. Actual costs vary by implementation.
+        </p>
+<div class="callout callout">
+<strong>OBSERVABLE TRENDS:</strong>
+<ul style="line-height: 1.5">
+<li><strong>Incremental model improvements</strong> → GPT-4 to o1/o3 gains are narrowing relative to 2020-2022</li>
+<li><strong>Enterprise budgets</strong> → Significant capital allocation for AI reliability in 2025</li>
+<li><strong>First-wave failures</strong> → Public AI disasters are mounting (documented liability)</li>
+</ul>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-03-judgment" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.iii · What judgment really is</div>
+
+<div>
+
+<h2 style="line-height: 1.2">Hermès doesn't ship "mostly good" bags. Neither should your AI.</h2>
+<p style="line-height: 1.6">
+            Traditionally, judgment was <strong>artisanal</strong> — slow, expensive, unscalable. One expert could train maybe 10 apprentices in a lifetime.
+        </p>
+<div class="callout callout">
+<p style="line-height: 1.4">
+                In AI, we can <span class="accent">BUILD</span> judgment systems. Scale them. Prove them. Deploy them at machine scale.
+            </p>
+<p style="letter-spacing: 0.05em; text-transform: uppercase">This is the arbitrage.</p>
+</div>
+<div class="callout">
+<p style="line-height: 1.7">
+<strong style="display: block">The Methodology Transfer:</strong>
+                In high-stakes manufacturing, products pass through multiple independent quality gates—materials, construction, and final review. No single person can approve their own work.
+                <br/><br/>
+                This principle applies to AI: <strong>the system that generates should never be the system that judges.</strong> Separation of concerns isn't just good architecture—it's how you build trust at scale.
+            </p>
+</div>
+<div>
+<p style="text-transform: uppercase; letter-spacing: 0.1em">Technically: Judgment is a trained compression function over a domain. <span>In enterprise terms: <strong>Domain-Aligned Quality.</strong></span></p>
+<div class="callout">
+<div>// Inputs</div><div>messy context, constraints, stakeholders, priors</div>
+<div>// Output</div><div>a decision you can defend under scrutiny</div>
+</div>
+<div class="two-col" style="align-items: stretch">
+<div class="box" style="display: flex; flex-direction: column; justify-content: center; opacity: 1 !important; transform: none !important">
+<div class="box-label">Training time</div>
+<div class="box-value">5-20 years</div>
+</div>
+<div class="box box terra" style="display: flex; flex-direction: column; justify-content: center; opacity: 1 !important; transform: none !important">
+<div class="box-label">Inference time</div>
+<div class="box-value">Milliseconds</div>
+</div>
+</div>
+<p class="quote">
+                "Judgment can be instant, but it is rarely free. <span>Someone paid for it in years.</span>"
+            </p>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-04-economics">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.iv · Why value accrues now</div>
+
+<div>
+
+<h2>Why value accrues to judgment now</h2>
+<p>In markets, <strong>rents concentrate at constraints</strong>.</p>
+<div class="two-col">
+<div class="box box-light">
+<div class="box-label">The 1-10-100 Rule</div>
+<p>Adapted from quality engineering:</p>
+<ul>
+<li><strong>$1</strong> to fix at Generation (Prompt/Context)</li>
+<li><strong>$10</strong> to fix at the Gate (Eval Layer)</li>
+<li><strong>$100</strong> to fix at the Customer (Lawsuits/Churn)</li>
+</ul>
+</div>
+<div class="box box terra">
+<div class="box-label">The Quality Shift</div>
+<ul>
+<li><strong>1990s (Automation):</strong> The Factory won. (Scale)</li>
+<li><strong>2010s (Software):</strong> The Cloud won. (Agility)</li>
+<li><strong>2025 (Intelligence):</strong> <span>The Audit wins. (Reliability)</span></li>
+</ul>
+<div style="line-height: 1.5">
+<strong style="display: block">The 2026 Proof Pressure:</strong>
+                    74% of CMOs are under intense scrutiny to prove ROI (<a href="https://nielseniq.com/global/en/insights/report/2025/cmo-outlook-for-2026/" style="text-decoration: underline" target="_blank">NIQ 2026</a>). Without a Taste Layer, you can't prove impact, only volume.
+                </div>
+</div>
+</div>
+<!-- Moved Decision Framework Here -->
+<div>
+<h3>Who Owns This?</h3>
+<p>
+                Engineering, Legal, and Product have different budgets and incentives.
+            </p>
+<table>
+<thead>
+<tr>
+<th>Stakeholder</th>
+<th>What They Care About</th>
+<th>Budget Source</th>
+<th>Your Pitch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Engineering/CTO</strong></td>
+<td>Ship velocity, incident rate</td>
+<td>Platform/Infra</td>
+<td>"Reduce on-call incidents from AI failures"</td>
+</tr>
+<tr>
+<td><strong>Risk/Legal/CISO</strong></td>
+<td>Liability exposure, compliance</td>
+<td>Risk budget</td>
+<td>"Auditable defense against AI liability"</td>
+</tr>
+<tr>
+<td><strong>Product/Brand</strong></td>
+<td>Customer trust, NPS</td>
+<td>Product budget</td>
+<td>"Quality as differentiator, not cost center"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-05-stack" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.v · Your stack is a funnel</div>
+
+<div>
+
+<h2>Your stack is a funnel, not a checklist.</h2>
+<p>Most companies treat evaluation like a post-ship audit. Winners build <strong>rejection gates</strong> before anything reaches production.</p>
+<div>
+<div style="line-height: 2">
+<strong>The Artifact: A Production Trace</strong>
+<br/>
+<span>Real-world example of the Taste Layer intercepting a defect.</span>
+<br/><br/>
+<div>
+<div>
+<span>INPUT (Draft):</span><br/>
+<span>"Our Pro plan offers 24/7 phone support and unlimited API credits."</span>
+</div>
+<div>
+<div>
+<span>GATE 1: SAFETY</span><br/>
+<span>[PASS]</span> No PII detected.<br/>
+<span>[PASS]</span> Brand safety check.
+                        </div>
+<div>
+<span>GATE 2: FACTS</span><br/>
+<span>[FAIL]</span> Hallucination detected.<br/>
+<span>&gt; Policy: Pro plan has email-only support.<br/>
+                            &gt; Source: kb_pricing_v2.md</span>
+</div>
+</div>
+<div>
+<span>DECISION:</span> <strong>BLOCK</strong><br/>
+<span>ACTION:</span> Retry with correction prompt (Temperature: 0.2)<br/>
+<span>LOG_ID:</span> <code>trace_9f8a7d2</code> <span>(Stored for Audit)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="two-col">
+<div class="box box-dark">
+<div class="box-label">Without Gates</div>
+<div style="line-height: 1.6">
+                    Ship everything → Higher hallucination risk → Brand trust erosion → Costly reactive cleanup
+                </div>
+</div>
+<div class="box box-dark">
+<div class="box-label">With Gates</div>
+<div style="line-height: 1.6">
+                    Filter before shipping → 36% rejected internally → Verified reduction in defect rate → Quality becomes the brand
+                </div>
+</div>
+</div>
+<div class="callout">
+<strong>The Litmus Test:</strong><br/>
+<span>If you cannot automatically reject the bottom 30% of your AI outputs with confidence, you do not have <span class="accent">The Taste Layer</span>. You have hope.</span>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-06-deliverables">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.vi · What you actually get</div>
+
+<div>
+
+<h2>What you actually get.</h2>
+<p>This is not just a philosophy. It is a set of tangible artifacts that your engineering, legal, and product teams will own.</p>
+<div>
+<div class="box" style="grid-column: span 2">
+<div class="box-label">1. The Evaluation Spec (Artifacts)</div>
+<div>
+<div>
+<strong>Failure Taxonomy (Example)</strong>
+<pre class="code" style="overflow-x: auto">
+{
+  "CRITICAL": {
+    "HALLUCINATION_FACT": "Claims contradiction with retrieval ctx",
+    "UNSAFE_PII": "Contains email/phone/SSN",
+    "ILLEGAL_ADVICE": "Offers medical/legal judgment"
+  },
+  "WARN": {
+    "OFF_BRAND_TONE": "Tone mismatch score &gt; 0.4",
+    "VERBOSITY": "Response &gt; 150 words"
+  }
+}</pre>
+</div>
+<div>
+<strong>Rubric (DSPy Signature)</strong>
+<pre class="code" style="overflow-x: auto">
+class FactJudge(dspy.Signature):
+    """Judge if response is supported by context."""
+    
+    context = dspy.InputField()
+    response = dspy.InputField()
+    
+    # Output
+    is_supported = dspy.OutputField(desc="True/False")
+    citation_check = dspy.OutputField(desc="List of missing citations")</pre>
+</div>
+</div>
+</div>
+<div class="box">
+<div class="box-label">3. The Judge Stack</div>
+<ul style="line-height: 1.6">
+<li><strong>LLM-as-a-Judge Config:</strong> Model selection (GPT-4o, Claude 3.5 Sonnet, Prometheus 2) and DSPy/LangSmith traces.</li>
+<li><strong>Human-in-the-Loop Workflow:</strong> Routing logic for low-confidence outputs.</li>
+<li><strong>CI/CD Gate:</strong> Github Action / API hook to block bad deployments.</li>
+</ul>
+</div>
+<div class="box">
+<div class="box-label">4. The Dashboard</div>
+<ul style="line-height: 1.6">
+<li><strong>Live Drift Monitor:</strong> Real-time chart of pass/fail rates.</li>
+<li><strong>Incident Log:</strong> Full audit trail of rejected outputs for Legal/Compliance.</li>
+<li><strong>Cost Tracker:</strong> Eval spend vs. Generation spend.</li>
+</ul>
+</div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-07-reliability" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.vii · Validating the validator</div>
+
+<div>
+
+<h2>Validating the Validator</h2>
+<p>We treat the judge as a software product that requires its own testing. This is how we ensure reliability.</p>
+<div>
+<div>
+<div>
+<strong>1. CALIBRATION (Kappa &gt; 0.8)</strong><br/>
+<span>We measure agreement between AI Judge and human experts. If they disagree, we refine the rubric.</span>
+</div>
+<div>
+<strong>2. DRIFT CHECKS (Weekly)</strong><br/>
+<span>Run judges against a static "Control Set" to ensure standards don't shift with model updates.</span>
+</div>
+<div>
+<strong>3. RED TEAMING (Monthly)</strong><br/>
+<span>Adversarial testing to ensure the judge catches subtle errors and isn't fooled by fluency.</span>
+</div>
+<div>
+<strong>4. VERSION CONTROL</strong><br/>
+<span>Every rubric and judge prompt is versioned (git). Decisions are traceable to specific criteria.</span>
+</div>
+</div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-08-business-case">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.viii · The cost of ignorance</div>
+
+<div>
+
+<h2>The Cost of Ignorance</h2>
+<p>Companies deploying AI without systematic quality checks are accumulating hidden risk. <span class="accent">The Taste Layer</span> is how leading enterprises are building durable competitive advantage.</p>
+<div class="two-col" style="align-items: stretch">
+<div class="box">
+<div class="box-label">CASE STUDY: Healthcare Algorithm (2024)</div>
+<div class="box-value">90% Overturn Rate (Alleged)</div>
+<div class="box-small">A rules-based algorithm used by a major insurer to deny care was alleged to be overturned in ~90% of appealed cases. While this predates modern generative AI, the lesson applies: <strong>all automated decision systems need rigorous evaluation before deployment.</strong> The result: class-action lawsuits and regulatory scrutiny.</div>
+</div>
+<div class="box box terra">
+<div class="box-label">SCENARIO: 50k Support Threads/Mo</div>
+<div style="line-height: 1.6">
+<strong>Cost of Evaluation:</strong><br/>
+                    ~ $2,500 / month<br/>
+<span>(50k * $0.05 per eval trace via GPT-4o-mini/3.5)</span>
+<br/><br/>
+<strong>Cost of Incident:</strong><br/>
+                    ~ $150,000 / incident<br/>
+<span>(Legal fees, PR crisis, customer churn, remediation)</span>
+<br/><br/>
+<div>
+<strong>ROI Break-even:</strong><br/>
+                        Preventing <strong>1</strong> minor hallucination per year pays for the entire infrastructure.
+                    </div>
+</div>
+</div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-09-fit" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.ix · Do you need this?</div>
+
+<div>
+
+<h2>Do You Need This?</h2>
+<p>The Taste Layer is not universally required. Here's how to know if it's right for your use case.</p>
+<div>
+<div class="box box-light">
+<div class="box-label">✓ YOU NEED THIS IF:</div>
+<ul style="line-height: 1.8">
+<li><strong>High-stakes decisions</strong> — Healthcare, legal, finance, compliance</li>
+<li><strong>Brand damage risk</strong> — Customer-facing outputs at scale</li>
+<li><strong>Regulatory requirements</strong> — Industries facing AI governance pressure</li>
+<li><strong>Volume + safety</strong> — Need both scale AND quality guarantees</li>
+</ul>
+</div>
+<div class="box box-dark">
+<div class="box-label">✗ YOU DON'T NEED THIS IF:</div>
+<ul style="line-height: 1.8">
+<li><strong>Low-consequence use cases</strong> — Internal brainstorming, drafts</li>
+<li><strong>Human review is sufficient</strong> — Low volume with manual oversight</li>
+<li><strong>Prototyping phase</strong> — Still experimenting with AI applications</li>
+<li><strong>Real-time latency critical</strong> — Voice, chat where ms matter</li>
+</ul>
+</div>
+</div>
+<div class="callout">
+<p>
+<span style="text-transform: uppercase; letter-spacing: 1px; display: block">The Taste Layer = 3 Technical Capabilities</span>
+                "Taste" isn't subjective—it's three measurable evaluation systems working together:
+            </p>
+<div>
+<div>
+<strong>1. Correctness Layer</strong>
+<p>Factuality, task success, technical accuracy. Measurable via hallucination rate, accuracy metrics.</p>
+</div>
+<div>
+<strong>2. Safety &amp; Compliance Layer</strong>
+<p>PII detection, regulatory alignment, policy adherence. Measurable via violation rates, audit results.</p>
+</div>
+<div>
+<strong>3. Brand &amp; Product Quality Layer</strong>
+<p>Tone, style, UX fit, customer experience. Measurable via brand alignment scores, trust metrics.</p>
+</div>
+</div>
+<p>
+                Each layer has distinct metrics, tooling, and funding sources (Engineering, Risk/Legal, Brand/Product). "Taste" is the brand wrapper for these three technical capabilities.
+            </p>
+</div>
+<!-- Concrete Vertical Examples -->
+<div>
+<h3>What This Looks Like in Practice</h3>
+<p>Concrete examples of evaluation gates by vertical:</p>
+<div>
+<div>
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Healthcare</p>
+<p style="line-height: 1.6">
+<strong>Gate 1:</strong> Block medical advice outside scope of practice<br/>
+<strong>Gate 2:</strong> Verify clinical claims against FDA-approved indications<br/>
+<strong>Gate 3:</strong> Ensure HIPAA-compliant language
+                    </p>
+</div>
+<div>
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Finance</p>
+<p style="line-height: 1.6">
+<strong>Gate 1:</strong> Detect and block PII leakage<br/>
+<strong>Gate 2:</strong> Validate regulatory disclosures (FINRA, SEC)<br/>
+<strong>Gate 3:</strong> Check investment advice against fiduciary standards
+                    </p>
+</div>
+<div>
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Retail/Brand</p>
+<p style="line-height: 1.6">
+<strong>Gate 1:</strong> Filter offensive or off-brand language<br/>
+<strong>Gate 2:</strong> Verify product claims against inventory/specs<br/>
+<strong>Gate 3:</strong> Enforce brand voice guidelines and tone
+                    </p>
+</div>
+</div>
+</div>
+<div class="callout callout">
+<strong>⚠️ MIDDLE GROUND OPTIONS:</strong>
+<div style="line-height: 1.7">
+<strong>Startups with limited resources:</strong> Start with Gates 1-2 only (safety + correctness). Add brand fit and taste layers as you scale.<br/><br/>
+<strong>Moderate risk applications:</strong> Implement sampling + spot-check human review (10-20% of outputs) rather than full automated gates.<br/><br/>
+<strong>Latency-sensitive but important:</strong> Run async evaluation on logged outputs for continuous monitoring without blocking responses.
+            </div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-10-implementation">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.x · Minimum Viable Eval stack</div>
+
+<div>
+
+<h2>Minimum Viable Eval Stack (MVE)</h2>
+<p>What an enterprise buyer expects to see on Monday.</p>
+<div class="callout">
+<p style="text-transform: uppercase; letter-spacing: 1px">
+                Core Infrastructure Components
+            </p>
+<div>
+<div class="box box-dark">
+<div class="box-label">INPUTS</div>
+<ul style="line-height: 1.8">
+<li><strong>Golden Set:</strong> 100-1,000 curated examples, versioned</li>
+<li><strong>Risk Taxonomy:</strong> Critical vs cosmetic defects</li>
+<li><strong>Evaluation Rubrics:</strong> Per layer (correctness, safety, brand)</li>
+</ul>
+</div>
+<div class="box box-dark">
+<div class="box-label">CORE LOOP</div>
+<ol style="line-height: 1.8">
+<li>Generate candidate output</li>
+<li>Evaluate via gates (safety → correctness → brand)</li>
+<li>Route: pass / auto-fix / escalate to human panel</li>
+<li>Log everything (prompt, context, model version, scores)</li>
+<li>Monitor drift, refresh golden set</li>
+</ol>
+</div>
+</div>
+<div class="box box-dark">
+<div class="box-label">OUTPUTS &amp; METRICS</div>
+<div>
+<div>
+<strong style="display: block">Defect Rate</strong>
+<span>Critical vs non-critical defects per 1K outputs</span>
+</div>
+<div>
+<strong style="display: block">Coverage</strong>
+<span>% of traffic evaluated (target: 100% for critical paths)</span>
+</div>
+<div>
+<strong style="display: block">Calibration</strong>
+<span>Judge confidence vs actual accuracy</span>
+</div>
+<div>
+<strong style="display: block">Latency Budget</strong>
+<span>P50, P95, P99 eval overhead</span>
+</div>
+<div>
+<strong style="display: block">Cost Budget</strong>
+<span>Eval cost per output (target: &lt;10% of generation)</span>
+</div>
+<div>
+<strong style="display: block">Audit Artifacts</strong>
+<span>Compliance logs for legal/regulatory review</span>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout">
+<p style="line-height: 1.7">
+<strong>⚙️ EVAL OPS IS REAL WORK:</strong><br/>
+                Evaluation is a production system with ownership, on-call rotation, and versioning. It's not a script. Treat the judge like any critical service: monitor uptime, track drift, test with adversarial prompts, maintain human panels for calibration.
+            </p>
+</div>
+<!-- Architecture Overview -->
+<div>
+<p style="text-transform: uppercase; letter-spacing: 1px">
+                System Architecture: Component View
+            </p>
+<div>
+<!-- Layer 1: Input -->
+<div style="text-align: center">
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Input</p>
+<p style="line-height: 1.5">
+                        User prompt<br/>+ Context<br/>+ History
+                    </p>
+</div>
+<!-- Layer 2: Generator -->
+<div style="text-align: center">
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Generator</p>
+<p style="line-height: 1.5">
+                        LLM API<br/>+ Retrieval<br/>+ Tools
+                    </p>
+</div>
+<!-- Layer 3: Evaluation Gates -->
+<div style="text-align: center">
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Eval Gates</p>
+<p style="line-height: 1.5">
+                        Judge(s)<br/>+ Policy filters<br/>+ Golden set
+                    </p>
+</div>
+<!-- Layer 4: Routing -->
+<div style="text-align: center">
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Routing</p>
+<p style="line-height: 1.5">
+                        Pass<br/>Auto-fix loop<br/>Human review
+                    </p>
+</div>
+</div>
+<!-- Supporting Infrastructure -->
+<div>
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Supporting Infrastructure</p>
+<div>
+<div>
+<p>
+<strong>Telemetry:</strong> Log all prompts, outputs, scores, model versions
+                        </p>
+</div>
+<div>
+<p>
+<strong>Dashboard:</strong> Defect rate, coverage, latency, cost tracking
+                        </p>
+</div>
+<div>
+<p>
+<strong>Human Queue:</strong> Escalated cases, calibration, golden set curation
+                        </p>
+</div>
+</div>
+</div>
+<p style="text-align: center">
+                → Flow: Input passes through generator, eval gates score output, routing logic decides pass/fix/escalate, telemetry captures everything
+            </p>
+</div>
+<div class="two-col">
+<div class="box">
+<div class="box-label">Gate Metrics Template</div>
+<p style="line-height: 1.6">
+<strong>Correctness:</strong> Factual error rate, task success, regression pass rate, citation validity<br/><br/>
+<strong>Safety/Compliance:</strong> PII leak rate, policy violation rate, refusal accuracy<br/><br/>
+<strong>Brand/Product:</strong> Tone match score, style violations, editor accept rate, complaint rate
+                </p>
+</div>
+<div class="box">
+<div class="box-label">2-Week Pilot Plan</div>
+<p style="line-height: 1.6">
+<strong>Week 1:</strong> Collect 200-500 real outputs, label defects, build golden set v0, choose metrics, set SLOs<br/><br/>
+<strong>Week 2:</strong> Implement gates 1-2 (safety + correctness), dashboard defect rate, create escalation queue, run canary release
+                </p>
+</div>
+</div>
+<!-- LLM-as-Judge Reliability Section -->
+<div class="callout">
+<p>
+<span style="text-transform: uppercase; letter-spacing: 1px; display: block">⚠️ Addressing the Objection</span>
+                "LLM-as-a-Judge is unreliable. Judges are biased, brittle, and easy to prompt-hack."
+            </p>
+<p style="line-height: 1.7">
+                This is a valid concern. The solution is <strong>not to trust the judge blindly</strong>, but to treat it like any production system requiring testing, monitoring, and calibration.
+            </p>
+<div>
+<div>
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Mitigation Strategies</p>
+<ul style="line-height: 1.8">
+<li><strong>Calibrated Rubrics:</strong> Task-specific scoring criteria, not generic prompts</li>
+<li><strong>Pairwise Ranking:</strong> Compare outputs A vs B with adjudication on ties</li>
+<li><strong>Holdout Golden Sets:</strong> Known-good/known-bad examples for judge accuracy testing</li>
+<li><strong>Adversarial Prompt Suite:</strong> Test judge against edge cases and prompt injection</li>
+<li><strong>Judge-Model Diversity:</strong> Use multiple judge models for critical decisions</li>
+<li><strong>Human Panels:</strong> Periodic calibration sessions to detect judge drift</li>
+</ul>
+</div>
+<div>
+<p style="text-transform: uppercase; letter-spacing: 0.5px">Ownership &amp; Monitoring</p>
+<ul style="line-height: 1.8">
+<li><strong>Engineering:</strong> Owns judge infrastructure, latency SLOs, cost budgets</li>
+<li><strong>Risk/Legal:</strong> Owns safety rubrics, compliance checks, audit logs</li>
+<li><strong>Product/Brand:</strong> Owns quality rubrics, tone/style criteria, user trust metrics</li>
+</ul>
+<p>
+                        The judge is tested and monitored like any model. It's not magic—it's infrastructure.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-11-arbitrage" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.xi · The last-mile gap</div>
+
+<div>
+
+<h2>The Last Mile Gap</h2>
+<p>While providers (Anthropic, OpenAI) solve safety and tooling platforms (LangSmith, Arize) solve tracing, <strong>domain-specific judgment</strong> remains the enterprise gap.</p>
+<div class="diagram-container">
+<div class="diagram-title">Conceptual Model: Skill Value Shift*</div>
+<svg style="width: 100%; max-width: 700px" viewbox="0 0 700 280">
+<rect fill="url(#grid)" height="200" opacity="0.15" width="580" x="70" y="30"></rect>
+<line stroke="#ddd" stroke-width="1" x1="70" x2="650" y1="230" y2="230"></line><line stroke="#ddd" stroke-width="1" x1="70" x2="70" y1="30" y2="230"></line>
+<!-- Adjusted paths to intersect exactly at 320, 125 -->
+<path d="M 70 50 Q 195 87, 320 125 Q 445 162, 650 200" fill="none" id="tech-skills-path" stroke="#999" stroke-dasharray="8,4" stroke-width="2"></path>
+<text fill="#999" font-size="11" x="85" y="42">Technical AI Skills</text>
+<path d="M 70 200 Q 195 162, 320 125 Q 445 87, 650 50" fill="none" id="judgment-path" stroke="#f59e0b" stroke-width="3"></path>
+<text fill="#f59e0b" font-size="11" x="85" y="212">Aesthetic Judgment (Quality)</text>
+<circle cx="320" cy="125" fill="none" id="crossover-circle" r="12" stroke="#f59e0b" stroke-width="2"></circle>
+<line id="crossover-line" stroke="#f59e0b" stroke-dasharray="4,4" stroke-width="1" x1="320" x2="320" y1="30" y2="125"></line>
+<text fill="#f59e0b" font-size="11" font-weight="600" id="crossover-text" text-anchor="middle" x="320" y="22">CROSSOVER: NOW</text>
+</svg>
+<p style="text-align: right">* Visual hypothesis illustrating the strategic shift from technical assembly to quality assurance.</p>
+</div>
+<div>
+<div class="box-small">
+<strong style="display: block">CTO</strong>
+                Consider hiring for judgment alongside technical skills. Quality assessment experience (editorial, design, QA) is increasingly valuable for AI teams.
+            </div>
+<div class="box-small">
+<strong style="display: block">INVESTOR</strong>
+                Evaluation infrastructure companies are likely to capture significant value as AI adoption matures. Domain-specific eval solutions show early traction.
+            </div>
+<div class="box-small">
+<strong style="display: block">FOUNDER</strong>
+                Balance generation capabilities with evaluation capacity. Quality infrastructure scales better than manual review.
+            </div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-12-tradeoffs">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.xii · System constraints</div>
+
+<div>
+
+<h2>System Constraints</h2>
+<p>Evaluation is a production system with real trade-offs.</p>
+<div>
+<div class="box box-dark">
+<div class="box-label">Latency (+500ms - 2s)</div>
+<p style="line-height: 1.6">
+                    Robust judges take time. <br/>
+<span>Verdict:</span> Essential for async/email. Skip for real-time voice.
+                </p>
+</div>
+<div class="box box-dark">
+<div class="box-label">False Negatives</div>
+<p style="line-height: 1.6">
+                    Strict gates can kill creative outliers. <br/>
+<span>Verdict:</span> Tune "Judge Temperature" to match risk tolerance.
+                </p>
+</div>
+<div class="box box-dark">
+<div class="box-label">Maintenance</div>
+<p style="line-height: 1.6">
+                    Golden sets rot as models change.<br/>
+<span>Verdict:</span> Requires an "Eval Ops" owner, not just a script.
+                </p>
+</div>
+<div class="box box-dark">
+<div class="box-label">Commoditization</div>
+<p style="line-height: 1.6">
+                    Generic checks (PII, Syntax) will become free/standard.<br/>
+<span>Verdict:</span> The value is in bespoke Policy &amp; Brand definitions.
+                </p>
+</div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-13-predictions" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.xiii · Market theses</div>
+
+<div>
+
+<h2>Market Theses</h2>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Observed Trend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The Talent Filter</strong></td>
+<td class="highlight-cell">Ratio of "AI Engineer" roles requiring "Evaluation/Red-teaming" skills will flip from minority to majority by 2027.</td>
+</tr>
+<tr>
+<td><strong>The Compute Flip</strong></td>
+<td class="highlight-cell">Compute investment is shifting toward <strong>Inference-Time Reasoning</strong> as the primary lever for accuracy and reliability.</td>
+</tr>
+<tr>
+<td><strong>The New Category</strong></td>
+<td class="highlight-cell">Evaluation Infrastructure is emerging as a standalone category, independent of foundation model providers.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout">
+<p>
+<span style="text-transform: uppercase; letter-spacing: 1px; display: block">Falsifiable Prediction</span>
+                By December 2026, at least one Fortune 500 company will list "AI Evaluation," "Model Risk," "AI Assurance," or "GenAI Quality" as a core competency in their 10-K filing, annual report, or earnings call transcript.
+            </p>
+<p>
+                If I'm wrong, the manifesto ages poorly. If I'm right, you heard it here first. Hold me accountable.
+            </p>
+<p>
+                What counts: Public disclosure in SEC filings (10-K), annual reports, risk sections, or earnings transcripts explicitly referencing evaluation capability as strategic or operational competency.
+            </p>
+</div>
+<!-- Falsifiers Section - Intellectual Honesty -->
+<div class="callout callout">
+<p>
+<span style="text-transform: uppercase; letter-spacing: 1px; display: block">🔬 What Would Falsify This Thesis</span>
+</p>
+<p style="line-height: 1.7">
+                Intellectual honesty requires stating what could prove me wrong. Here are concrete scenarios that would undermine the need for separate evaluation infrastructure:
+            </p>
+<div>
+<div>
+<p>Falsifier 1: Platform Commoditization</p>
+<p style="line-height: 1.6">
+                        Foundation model providers ship end-to-end evaluation and governance that removes the need for separate infrastructure for most enterprises.
+                    </p>
+</div>
+<div>
+<p>Falsifier 2: Near-Zero Eval Cost</p>
+<p style="line-height: 1.6">
+                        Tooling advances reduce eval cost to near-zero even for domain-specific judgment, eliminating the economic moat.
+                    </p>
+</div>
+<div>
+<p>Falsifier 3: Human-in-the-Loop Dominance</p>
+<p style="line-height: 1.6">
+                        Enterprises shift to human-in-the-loop workflows at scale instead of automated gates because automated eval remains too brittle.
+                    </p>
+</div>
+</div>
+<p>
+                If any of these scenarios materialize, the strategic value of separate evaluation infrastructure diminishes significantly. I'm tracking these possibilities and will update this thesis accordingly.
+            </p>
+</div>
+<div class="two-col">
+<div class="box">
+<div class="box-label">The Leader's Path</div>
+<div>Build infrastructure for truth while others chase vibes.</div>
+</div>
+<div class="box laggard-fade">
+<div class="box-label">The Laggard's Fate</div>
+<div>Drown in the operational noise of unverified generation.</div>
+</div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-14-credibility">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.xiv · Why this is my life&#x27;s work</div>
+
+<div>
+
+<h2>Why this is my life's work.</h2>
+<p>
+            The principles of quality assurance are universal, whether applied to physical goods or probabilistic software. Studio W230 translates rigorous quality methodologies—proven in high-stakes manufacturing—into the domain of AI evaluation. This is not about aesthetics; it is about systemizing judgment to prevent defects at scale.
+        </p>
+<div class="two-col" style="align-items: stretch">
+<div class="box box-dark">
+<div class="box-label">MINIMUM VIABLE PROOF (MVP)</div>
+<div>
+<strong>The 2-Week Pilot Plan (Support Bot Workflow):</strong>
+</div>
+<div>
+<div>
+<strong style="display: block">1. Inputs &amp; Gates</strong>
+<ul style="line-height: 1.6">
+<li><strong>Golden Set:</strong> 200 human-verified Q&amp;A pairs</li>
+<li><strong>Gate 1 (Safety):</strong> Block PII &amp; toxic language</li>
+<li><strong>Gate 2 (Technical):</strong> RAG citation verification</li>
+<li><strong>Thresholds:</strong> Safety &gt; 99%, Factuality &gt; 95%</li>
+</ul>
+</div>
+<div>
+<strong style="display: block">2. Measured Outcomes</strong>
+<ul style="line-height: 1.6">
+<li><strong>Hallucination Rate:</strong> 12% → &lt;1%</li>
+<li><strong>Policy Violations:</strong> 4% → 0%</li>
+<li><strong>Audit Artifact:</strong> Redacted compliance report</li>
+<li><strong>Time to Value:</strong> 14 days to first gate</li>
+</ul>
+</div>
+</div>
+<div style="line-height: 1.6">
+<strong>The Deliverable:</strong> Not just a report, but operational infrastructure. A deployed evaluation pipeline that automatically rejects unsafe or incorrect outputs before they reach the user.
+                </div>
+</div>
+<div class="box box-dark">
+<div class="box-label">Methodology Transfer</div>
+<ul style="list-style: none">
+<li>
+<strong>From: Physical Product Quality</strong><br/>
+                        16 years managing zero-defect constraints (Fendi, Bentley). Principles: Golden sets, adversarial stress-testing, human-in-the-loop validation.
+                    </li>
+<li>
+<strong>To: AI Evaluation Systems</strong><br/>
+                        Applying these constraints to probabilistic outputs. Bridging engineering rigor with domain-specific "taste" (policy &amp; brand).
+                    </li>
+</ul>
+</div>
+</div>
+<div>
+            * Case studies are anonymized or based on representative enterprise patterns to protect confidentiality. Metrics are illustrative based on confidential consulting work.
+        </div>
+<div style="display: flex; flex-wrap: wrap">
+<span><strong>MIT</strong> Applied Agentic AI Program (2025) — Model risk &amp; evaluation frameworks</span>
+<span><strong>Stanford Online</strong> Game Theory — Strategic reasoning for multi-stakeholder systems</span>
+<span><strong>UNSW</strong> Guest Lecturer (Design Systems)</span>
+<span><strong>SXSW Sydney</strong> Speaker (2023)</span>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-15-claim" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow blue">I.xv · Get started</div>
+
+<div>
+
+<div style="text-align: center">
+<h3 style="line-height: 1.2">
+                Companies investing in evaluation infrastructure today<br/>
+                are building durable competitive advantages.
+            </h3>
+<h2 style="letter-spacing: -0.02em">Get Started.</h2>
+<div>
+<p style="text-transform: uppercase; letter-spacing: 1px">
+                    ⚡ Do This Tomorrow
+                </p>
+<p style="line-height: 1.6">
+                    The 5-minute test: Take your last 10 AI-generated customer communications. Have someone outside your team rate them for accuracy.
+                </p>
+<p>
+                    What's your defect rate?
+                </p>
+<p>
+                    If you don't know the answer, you're flying blind. If the answer makes you uncomfortable, that's the data you needed.
+                </p>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center">
+<p style="max-width: 600px; text-align: center">
+                    This manifesto represents ongoing research on The Taste Layer.
+                </p>
+<div style="text-align: center; line-height: 1.8">
+<strong style="display: block">Ready to build your evaluation infrastructure?</strong>
+<br/>
+                    → <a href="https://www.linkedin.com/in/simoleonelli/" style="text-decoration: none" target="_blank">Connect with me</a> — Follow my work and ongoing research
+                    <br/>
+                    → <a href="https://cal.com/simone-leonelli/20min" style="text-decoration: none" target="_blank">Schedule a consultation</a> — Let's discuss your specific use case
+                </div>
+<p style="max-width: 500px; text-align: center">
+                    Working on AI evaluation challenges? I'd love to learn from your experience.
+                </p>
+<div style="max-width: 600px">
+<strong>Transparency Note:</strong> This manifesto reflects the methodology used by Studio W230 in consulting engagements. While the principles are open and transferable, the implementation examples reference services we provide.
+                </div>
+<div style="width: 50px"></div>
+<p>
+                    Simone Leonelli — Studio W230
+                </p>
+</div>
+</div>
+</div>
+
+  </div>
+</section>
+
+<section id="taste-16-references">
+  <div class="essay prose">
+    <div class="eyebrow blue">§ · Further reading</div>
+
+<div>
+
+<h2>For those who want to go deeper.</h2>
+<p style="max-width: 600px">A selection of foundational research and industry reports for those looking to build rigorous evaluation systems.</p>
+<table class="ref-table">
+<thead><tr><th>Domain</th><th>Resource</th></tr></thead>
+<tbody>
+<tr><td>Legal Liability</td><td><a href="https://canlii.ca/t/k2pfh" target="_blank">CRT Tribunal — Moffatt v. Air Canada (2024)</a></td></tr>
+<tr><td>Cost Dynamics</td><td><a href="https://epoch.ai/data-insights/llm-apis-accuracy-runtime-tradeoff" target="_blank">Epoch AI — LLM Accuracy-Runtime Trade-offs (2025)</a></td></tr>
+<tr><td>Market Research</td><td><a href="https://nielseniq.com/global/en/insights/report/2025/cmo-outlook-for-2026/" target="_blank">NIQ — CMO Outlook: Guide to 2026</a></td></tr>
+<tr><td>AI Strategy</td><td><a href="https://www.ibm.com/thought-leadership/institute-business-value/en-us/c-suite-study/cmo" target="_blank">IBM — The AI-First CMO C-suite Study</a></td></tr>
+<tr><td>Trust Economy</td><td><a href="https://www.salsify.com/resources/report/2025-consumer-research" target="_blank">Salsify — Consumer Research 2025: The Value of Trust</a></td></tr>
+<tr><td>Industry Forecast</td><td><a href="https://www.gartner.com/en/information-technology/glossary/ai-trism" target="_blank">Gartner — AI TRiSM (Trust, Risk &amp; Security Management)</a></td></tr>
+<tr><td>Risk Assessment</td><td><a href="https://www.statnews.com/2023/11/14/unitedhealth-class-action-lawsuit-algorithm-medicare-advantage/" target="_blank">Stat News — UnitedHealth AI Lawsuit (Alleged 90% Error Rate)</a></td></tr>
+<tr><td>Foundational</td><td><a href="https://gwern.net/doc/design/1971-simon.pdf" target="_blank">Simon (1971) — Designing Organizations for an Information-Rich World</a></td></tr>
+</tbody>
+</table>
+</div>
+
+  </div>
+</section>
+<section id="bridge" class="terracotta">
+  <div class="essay">
+    <div class="eyebrow" style="color: rgba(244,239,230,0.7);"><span class="num" style="color:#fff;">↔</span>The pivot</div>
+    <h2 class="rise"><span>Same thesis.</span></h2>
+    <h2 class="rise"><span><em>Different altitude.</em></span></h2>
+    <p class="reveal" style="font-size: var(--size-lede); color: rgba(244,239,230,0.92); max-width: 36ch; margin-top: 24px;">Chapter one asked: how does one company ship AI to its own customers without becoming the next case study? Chapter two asks the same question across a marketplace.</p>
+  </div>
+</section>
+<section class="chapter-mark">
+  <div class="essay">
+    <div class="roman reveal">II</div>
+    <div class="ch-name reveal" style="--rd: 80ms;">— The Curation Stack —</div>
+    <div class="ch-title reveal" style="--rd: 160ms;">Quality infrastructure across a marketplace</div>
+  </div>
+</section>
+<section id="cura-00-section-01">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.i · The convergence</div>
+
+<div class="section-number">01 | The Convergence</div>
+<h2 id="h-section-01">Every Generation Tool Arrives at the Same Problem</h2>
+<p>A new category is forming: <strong>user-generated software (UGS)</strong>. Natural language to runnable apps, published into a shared catalog where discovery, ranking, and reuse are product primitives. The moment you add a marketplace feed, you inherit curation as an infrastructure problem.</p>
+<p>UGS is distinct from internal one-off scripts, private automations without discovery, or traditional open-source repositories. It combines creation democratization with platform-mediated distribution.</p>
+<p>The generation layer is converging fast. Prompt-to-app pipelines are becoming a commodity. The differentiators that matter in 2025 (speed, fidelity, native deployment) will be table stakes by 2027.</p>
+<p>This table documents only publicly observable features as of February 2026. Internal roadmaps and private features are not assessed. Absence from this list does not mean absence from a platform's plans.</p>
+<table class="comp-table">
+<caption style="'JetBrains Mono', monospace; text-align: left; letter-spacing: 0.05em">Platform Landscape: Observed Curation Primitives (Evidence Only)</caption>
+<thead>
+<tr>
+<th scope="col">Platform</th>
+<th scope="col">Product Shape</th>
+<th scope="col">Documented Curation Primitives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://wabi.ai" rel="noopener noreferrer" target="_blank">Wabi</a></td>
+<td>Social-first UGS, persistent identity, remix culture</td>
+<td>Algorithmic feed, remix as product feature, community signals</td>
+</tr>
+<tr>
+<td><a href="https://www.createanything.com" rel="noopener noreferrer" target="_blank">Anything</a></td>
+<td>Full-stack code generation, native mobile + web, App Store deploy</td>
+<td>Code linting, error recovery, user reviews, experts marketplace</td>
+</tr>
+<tr>
+<td><a href="https://replit.com" rel="noopener noreferrer" target="_blank">Replit</a></td>
+<td>Developer-adjacent platform, enterprise controls, SOC2</td>
+<td>Security screening, code review (enterprise tier), featured templates</td>
+</tr>
+<tr>
+<td><a href="https://lovable.dev" rel="noopener noreferrer" target="_blank">Lovable</a></td>
+<td>Design-forward code generation, visual quality emphasis</td>
+<td>Template gallery, curated examples</td>
+</tr>
+<tr>
+<td><a href="https://openai.com/index/introducing-the-gpt-store/" rel="noopener noreferrer" target="_blank">GPT Store</a></td>
+<td>Custom GPTs marketplace, conversational interface, no-code creation</td>
+<td>Policy review, verified builder program, leaderboards, categories</td>
+</tr>
+</tbody>
+</table>
+<p>The pattern: every platform has invested heavily in <strong>generation</strong> infrastructure. Where curation primitives exist, they tend to be narrowly scoped — policy compliance, security screening, editorial picks — rather than systematic quality infrastructure across discovery and lifecycle.</p>
+<div class="thesis-box">
+<p><strong>The core thesis:</strong> In user-generated software marketplaces, the generation engine is converging toward commodity. The curation layer — the infrastructure that makes quality legible, discoverable, and trustworthy — is the durable competitive advantage. Elements of curation exist across platforms (editorial picks, reviews, health checks), but no platform has publicly named a coherent, end-to-end curation architecture as a product layer. The mechanism: quality tiers change user behavior (trust, reduced bounce), ranking changes creator incentives (polish yields visibility), and decay management changes retention (fewer broken first experiences).</p>
+</div>
+
+  </div>
+</section>
+
+<section id="cura-01-section-02" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.ii · The quality arc</div>
+
+<div class="section-number">02 | The YouTube Lesson</div>
+<h2 id="h-section-02">Every UGC Platform Replays the Same Quality Arc</h2>
+<p>YouTube in 2006: anyone can upload video. Massive volume. Discovery by views and virality. No quality signals beyond popularity. The platform was exciting and chaotic and largely unusable for anything serious.</p>
+<p>YouTube in 2016: creator monetization, content policies, algorithmic ranking weighted by watch time and satisfaction, trust and safety teams, verified channels, copyright systems. A decade of quality infrastructure investment. <a href="https://support.google.com/youtube/answer/72851" rel="noopener noreferrer" style="text-decoration: none" target="_blank">[YouTube Partner Program History]</a></p>
+<p>YouTube in 2025: professional-grade content coexists with amateur uploads. Quality tiers are legible. Creators have incentives to invest in production value. The platform succeeded not because it hosted the most video, but because it built the systems that made quality <strong>discoverable</strong>.</p>
+<div class="case-label neutral">Pattern Recognition</div>
+<h4 style="'Space Grotesk', sans-serif">The UGC Quality Arc</h4>
+<div class="quality-arc">
+<div class="phase-card">
+<div class="phase-marker">1</div>
+<div class="phase-body">
+<h4>Volume</h4>
+<p>"Anyone can create." Platform celebrates quantity. Discovery is primitive (recency, popularity). Quality is vibes-based. Early adopters love the chaos.</p>
+</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker">2</div>
+<div class="phase-body">
+<h4>Noise</h4>
+<p>Library grows past manual curation capacity. Broken, abandoned, and low-quality entries dominate discovery. New users bounce. Retention drops.</p>
+</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker">3</div>
+<div class="phase-body">
+<h4>Infrastructure</h4>
+<p>Platform builds quality signals: ratings, editorial picks, creator incentives, algorithmic quality weighting, trust tiers. Discovery improves. Quality becomes a platform feature, not an accident.</p>
+</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker">4</div>
+<div class="phase-body">
+<h4>Professionalization</h4>
+<p>Quality infrastructure enables a creator economy. Top creators invest because the platform rewards quality. The flywheel works.</p>
+</div>
+</div>
+</div>
+<p>Every UGC platform, from YouTube to Etsy to the App Store, has traversed this arc. The ones that invested in quality infrastructure early (Airbnb's trust framework, Spotify's editorial playlists) compressed the timeline.</p>
+
+  </div>
+</section>
+
+<section id="cura-02-section-03">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.iii · What Hermès knows</div>
+
+<div class="section-number">03 | The Luxury Transfer</div>
+<h2 id="h-section-03">What Hermès Knows That Platforms Don't</h2>
+<p>Luxury brands have solved the curation problem for physical goods across centuries. The methodology is precise, systematic, and transferable. It rests on three principles that map directly to software platform quality.</p>
+<h3>Principle 1: The Golden Sample</h3>
+<p>In luxury manufacturing, every production run is evaluated against a <strong>golden sample</strong>, a reference artifact that embodies the quality standard. Not a spec document. Not a checklist. A physical object you can hold, examine, and compare against.</p>
+<p>For user-generated software: the equivalent is a curated set of <strong>reference apps</strong> that define what "excellent" looks like on the platform. Not just featured apps. Architecturally sound, well-designed, maintained, and deeply useful apps that serve as the evaluation benchmark.</p>
+<h3>Principle 2: Separation of Creation and Judgment</h3>
+<p>At Fendi, the artisan who sews a bag never performs the final quality inspection. At Bentley, the engineer who builds a component is not the person who signs off on the finished vehicle. <strong>The system that generates should never be the system that judges.</strong></p>
+<h3>Principle 3: Quality Tiers Are Legible</h3>
+<p>You know a Michelin three-star restaurant is different from a one-star. You know a Hermès Birkin passed different gates than a department store handbag. The quality difference is <strong>visible and legible</strong> to the consumer before purchase.</p>
+<div class="thesis-box">
+<p>Luxury brands don't rely on customers to discover quality through trial and error. They invest in <strong>making quality visible</strong> before the customer commits. This is the infrastructure that UGS platforms are missing.</p>
+</div>
+
+  </div>
+</section>
+
+<section id="cura-03-section-04" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.iv · The L0–L4 curation stack</div>
+
+<div class="section-number">04 | The Architecture</div>
+<h2 id="h-section-04">What a Curation Stack Actually Looks Like</h2>
+<p>Enterprise evaluation (as described in <a href="https://mustbesimo.github.io/tasteinfra/" style="text-decoration: none">The Taste Layer</a>) uses binary gates: pass or fail on correctness, safety, and brand compliance. Platform curation is structurally different. It operates on <strong>gradients</strong>, not binary gates, because the goal is ranking and discovery, not rejection.</p>
+<div class="stack-scroll">
+<div class="stack-pin">
+<div class="diagram">
+<div class="diagram-title">The Curation Stack: Layer Architecture</div>
+<div class="flow-row" data-layer="0">
+<div class="flow-box">L0: Identity &amp; Provenance</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Creator trust tier, app lineage, permission manifest</div>
+</div>
+<div class="flow-row" data-layer="1">
+<div class="flow-box">L1: Functional Integrity</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Does the app work? Load? Handle edge cases?</div>
+</div>
+<div class="flow-row" data-layer="2">
+<div class="flow-box">L2: Design Quality</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Visual coherence, interaction patterns, responsiveness</div>
+</div>
+<div class="flow-row" data-layer="3">
+<div class="flow-box">L3: Utility Depth</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Does it solve a real problem? Is it used repeatedly?</div>
+</div>
+<div class="flow-row" data-layer="4">
+<div class="flow-box accent">L4: Curation Signal</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box accent">Composite quality score, editorial tier, trust badge</div>
+</div>
+</div>
+</div>
+<div class="stack-content">
+<div class="stack-explain" data-layer="0">
+<h4>L0: Identity &amp; Provenance</h4>
+<p>The foundation layer. Every app carries a verified creator identity, a complete fork lineage, and a declared permission manifest. This enables governance (whose app is this?), trust transfer (verified creator badges), and fork safety (did this remix degrade or improve quality?).</p>
+</div>
+<div class="stack-explain" data-layer="1">
+<h4>L1: Functional Integrity</h4>
+<p>Automated health checks at publish and continuously post-deploy. Does the app load? Do buttons trigger responses? Does it handle edge cases gracefully? Error rate monitoring catches decay before users do.</p>
+</div>
+<div class="stack-explain" data-layer="2">
+<h4>L2: Design Quality</h4>
+<p>Measurable through automated heuristics: accessibility score (WCAG compliance), responsive breakpoint pass rate, contrast ratio checks, interaction completeness (percentage of UI elements that respond when activated), and layout anomaly detection. Not subjective taste — design signals that correlate with user trust and task completion.</p>
+</div>
+<div class="stack-explain" data-layer="3">
+<h4>L3: Utility Depth</h4>
+<p>Measured via cohort retention (D1, D7, D30 return rates), session depth, task completion rate, time-to-value (seconds from first open to first meaningful action), and category-normalized benchmarks. A personal CRM used daily by 200 people scores higher than a novelty app opened once by 10,000.</p>
+</div>
+<div class="stack-explain" data-layer="4">
+<h4>L4: Curation Signal</h4>
+<p>The composite layer. Weighted scores from L0–L3 produce a quality signal that powers discovery ranking, tier badges (Reference / Verified / Community / Unrated), and editorial featuring. This is where the Michelin model meets algorithmic scale.</p>
+</div>
+</div>
+</div>
+<p><strong>L0 is marketplace-native infrastructure.</strong> In UGS platforms, provenance isn't decorative: it enables governance (whose app is this?), trust transfer (verified creator badges), and fork safety (did this remix degrade or improve quality?).</p>
+<table class="comp-table">
+<caption style="'JetBrains Mono', monospace; text-align: left; letter-spacing: 0.05em">Architecture Comparison: Enterprise vs Platform Quality Systems</caption>
+<thead>
+<tr>
+<th scope="col">Dimension</th>
+<th scope="col">Enterprise (Taste Layer)</th>
+<th scope="col">Platform (Curation Stack)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decision type</td>
+<td>Binary: ship or block</td>
+<td>Gradient: rank, tier, feature</td>
+</tr>
+<tr>
+<td>Quality owner</td>
+<td>Internal team (Engineering + Legal + Brand)</td>
+<td>Platform + creators + community</td>
+</tr>
+<tr>
+<td>Evaluation timing</td>
+<td>Pre-deployment gate</td>
+<td>Continuous (creation, discovery, usage, decay)</td>
+</tr>
+<tr>
+<td>Failure mode</td>
+<td>Hallucination reaches customer</td>
+<td>Low-quality apps dominate discovery feed</td>
+</tr>
+<tr>
+<td>Economic incentive</td>
+<td>Liability avoidance</td>
+<td>Marketplace trust, retention, creator economy</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+</section>
+
+<section id="cura-04-section-05">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.v · What quality looks like at scale</div>
+
+<div class="section-number">05 | The Signals</div>
+<h2 id="h-section-05">What Quality Looks Like When Everyone Can Create</h2>
+<p>The traditional software quality hierarchy (code quality, test coverage, performance benchmarks) doesn't transfer cleanly to user-generated software. Most UGS apps have no tests, no CI/CD, no code review. The code is generated and opaque. Quality must be inferred from <strong>observable signals</strong>.</p>
+<p><strong>Discovery is a multi-objective ranking function:</strong> quality, freshness, personalization, and safety. The goal is not to block creation, it is to allocate attention under scarcity.</p>
+<div class="tier-grid">
+<div class="tier-card">
+<div class="tier-label">Automated (L1-L2)</div>
+<h4>Functional Signals</h4>
+<p>Load time, error rate, crash frequency, responsive layout, accessibility score, interaction completeness (do all buttons do something?), data persistence, session handling.</p>
+</div>
+<div class="tier-card">
+<div class="tier-label">Behavioral (L3)</div>
+<h4>Usage Signals</h4>
+<p>Return rate (used more than once), session depth, task completion, remix count, share rate, time-to-value (how fast does the user get utility?), active days since creation.</p>
+</div>
+<div class="tier-card">
+<div class="tier-label">Composite (L4)</div>
+<h4>Curation Signals</h4>
+<p>Quality score (weighted composite), editorial selection, creator reputation, category benchmark (best-in-class within type), freshness vs. durability balance.</p>
+</div>
+</div>
+<p>The critical insight: <strong>popularity is not quality</strong>. A viral novelty app with 10,000 uses and a 5% return rate is less valuable to the platform than a personal CRM with 200 users and an 80% weekly return rate. Volume-weighted discovery repeats the YouTube 2006 mistake. Quality-weighted discovery builds the YouTube 2025 flywheel.</p>
+<div class="split">
+<div class="split-card danger">
+<h4>Volume-Weighted Discovery</h4>
+<p>Most downloaded → most visible → more downloads. Novelty dominates. Utility dies in the long tail. Quality creators have no incentive to invest. Feed becomes noise. New users see broken apps, bounce, never return.</p>
+</div>
+<div class="split-card safe">
+<h4>Quality-Weighted Discovery</h4>
+<p>Highest utility → most visible → more sustained usage. Depth rewarded. Creators invest in polish because the platform rewards it. Feed feels curated. New users find useful tools immediately. Retention compounds.</p>
+</div>
+</div>
+<h3>The Ranking Function</h3>
+<p>Discovery is a multi-objective optimization. Here is the scoring function in sketch form:</p>
+<div class="code-block">
+<span class="comment">// Discovery Ranking Function</span><br/><br/>
+<span class="key">QualityScore</span>(app, user, time) =<br/>
+<span class="val">  w1 * Health(app, time)</span><br/>
+<span class="val">  + w2 * Utility(app, cohort)</span><br/>
+<span class="val">  + w3 * Design(app)</span><br/>
+<span class="val">  + w4 * Trust(creator, app_lineage)</span><br/>
+<span class="val">  - w5 * Decay(app, time)</span><br/>
+<span class="val">  - w6 * AbuseRisk(app, creator, traffic)</span><br/><br/>
+<span class="comment">// Weights calibrated via A/B tests on D7 and D30 retention</span><br/>
+<span class="comment">// and user satisfaction. Reviewed quarterly.</span><br/>
+<span class="comment">// Category-specific baselines prevent cross-domain bias.</span><br/>
+<span class="comment">// Exploration budget ensures new apps get cold-start visibility.</span>
+</div>
+
+  </div>
+</section>
+
+<section id="cura-05-section-06" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.vi · Software rots</div>
+
+<div class="section-number">06 | The Decay Problem</div>
+<h2 id="h-section-06">Software Rots. Especially When No One Maintains It.</h2>
+<p>This is the problem that separates user-generated software from user-generated content. A YouTube video from 2012 still plays. A blog post from 2015 still reads. But software decays: APIs change, dependencies break, design patterns age, data schemas drift.</p>
+<p>In a UGS marketplace, apps are created in seconds and abandoned in hours. The platform accumulates <strong>digital debris</strong> at a rate proportional to creation velocity. Without active lifecycle management, the library becomes a graveyard with a fresh coat of paint.</p>
+<div class="case-study">
+<div class="case-label">The Decay Scenario</div>
+<h4>Year One of a UGS Platform</h4>
+<p>Month 1: 1,000 apps created. Most functional. Feed is exciting.<br/>
+      Month 6: 50,000 apps. Dependency drift, API changes, and abandonment begin to degrade the library. Discovery surfaces abandoned apps alongside active ones. User frustration rises.<br/>
+      Month 12: 500,000 apps. A significant percentage are broken or abandoned. The "most popular" feed is dominated by novelty apps with declining utility. Quality apps are buried. Creator motivation drops because effort isn't rewarded. New user experience degrades.<br/><br/>
+<strong>Without quality infrastructure, creation velocity becomes a liability, not an asset.</strong></p>
+</div>
+<h3>Lifecycle Signals</h3>
+<p>A curation stack needs to track app health over time, not just at creation. Signals that matter: last updated, error rate trend (improving or degrading?), creator activity status, dependency health, user-reported issues. Apps should gracefully age out of discovery when they stop working, and resurface when maintained.</p>
+
+  </div>
+</section>
+
+<section id="cura-06-section-07">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.vii · Quality tiers as infrastructure</div>
+
+<div class="section-number">07 | The Michelin Model</div>
+<h2 id="h-section-07">Quality Tiers as Platform Infrastructure</h2>
+<p>Michelin doesn't rate every restaurant. It rates the ones worth attention, using a consistent, independent, expert-driven framework. This is the model that UGS platforms need.</p>
+<p>A quality tier system for user-generated software creates three platform-level benefits simultaneously: <strong>user trust</strong> (I know what I'm getting), <strong>creator incentive</strong> (investment in quality is rewarded with visibility), and <strong>marketplace efficiency</strong> (discovery surfaces the right apps to the right users).</p>
+<div class="diagram">
+<div class="diagram-title">Proposed Quality Tier Framework</div>
+<div class="flow-row">
+<div class="flow-box accent">★★★ Reference</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Golden sample quality. Editorially verified. Maintained. Best-in-category.</div>
+</div>
+<div class="flow-row">
+<div class="flow-box accent">★★ Verified</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Functional, designed, actively used. Automated quality gates passed.</div>
+</div>
+<div class="flow-row">
+<div class="flow-box accent">★ Community</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">Functional. Creator-published. Peer-validated through usage and remix.</div>
+</div>
+<div class="flow-row">
+<div class="flow-box accent">Unrated</div>
+<div class="flow-arrow">→</div>
+<div class="flow-box">New or untested. Available but not featured in discovery.</div>
+</div>
+</div>
+<p>The tier system is not gatekeeping. It is <strong>legibility</strong>. Users can still create, share, and use any app. But the discovery layer rewards quality, and the tier badges make quality visible before the user commits time and attention.</p>
+<p>This is also the creator monetization path. In YouTube's model, monetization follows quality signals (subscriber count, watch hours, content policies). In UGS, monetization should follow quality tiers. Reference-tier creators earn from their work. Community-tier creators build reputation toward verified status.</p>
+
+  </div>
+</section>
+
+<section id="cura-07-section-08" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.viii · Remix as quality signal</div>
+
+<div class="section-number">08 | The Remix Dimension</div>
+<h2 id="h-section-08">Remix Culture as Quality Signal</h2>
+<p>One feature unique to UGS platforms (especially Wabi) is remix: the ability to fork, modify, and reshare apps. This creates a quality signal that doesn't exist in traditional software or content marketplaces.</p>
+<p><strong>Remix count is a proxy for architectural quality.</strong> An app that gets remixed frequently has a structure worth building on. An app that never gets remixed may be useful but is likely either too niche or too brittle to modify.</p>
+<p>More importantly, remix creates <strong>quality compounding</strong>. Each remix potentially improves the original. The best apps become platforms within the platform, accumulating improvements from the community. This is open-source dynamics applied to personal software.</p>
+<div class="thesis-box">
+<p>The platforms that treat remix as a quality mechanism (rather than just a social feature) will build compounding quality advantages. Remix genealogy, the ability to trace an app's lineage and identify which versions improved versus degraded quality, is a powerful curation signal that no platform currently tracks.</p>
+</div>
+
+  </div>
+</section>
+
+<section id="cura-08-section-09">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.ix · Why &quot;let the community decide&quot; fails</div>
+
+<div class="section-number">09 | The Anti-Pattern</div>
+<h2 id="h-section-09">Why "Let the Community Decide" Fails</h2>
+<p>The default assumption in platform thinking: quality will emerge organically from community engagement. Upvotes, reviews, usage metrics, and social sharing will surface the best apps naturally.</p>
+<p>This assumption has failed in every UGC marketplace that relied on it exclusively.</p>
+<ul class="styled-list">
+<li><strong>App Store (2008-2012):</strong> Fart apps dominated discovery. Apple built editorial curation, "Today" features, and review standards.</li>
+<li><strong>Google Play (2012-2016):</strong> Malware and clones flooded the store. Google invested in Play Protect, automated review, and editorial teams.</li>
+<li><strong>Etsy (2015-2019):</strong> Resellers and mass-produced goods overwhelmed handmade artisans. Etsy built verification, editorial collections, and algorithmic quality signals.</li>
+<li><strong>GPT Store (2024-2025):</strong> Large catalog of custom GPTs, minimal systematic curation infrastructure observable in public product surfaces. Non-featured items have low visibility without direct search. <abbr class="inference-badge" title="Derived from observed product UX behavior, not explicitly stated">[Inference]</abbr></li>
+</ul>
+<p>The failure pattern is consistent: <strong>at scale, volume drowns quality unless the platform actively invests in quality infrastructure</strong>. Community signals are a necessary input to curation, but they are not sufficient. Editorial intelligence, automated quality gates, and tier systems must layer on top.</p>
+<h3>Common Discovery Failure Modes</h3>
+<p>When curation is under-resourced relative to creation velocity, predictable pathologies emerge:</p>
+<table class="comp-table">
+<caption style="'JetBrains Mono', monospace; text-align: left; letter-spacing: 0.05em">Discovery Failure Modes and Mitigation Strategies</caption>
+<thead>
+<tr>
+<th scope="col">Failure Mode</th>
+<th scope="col">Root Cause</th>
+<th scope="col">Observable Signal</th>
+<th scope="col">Mitigation Primitive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broken apps dominate feed</td>
+<td>No health gating at publish or decay detection</td>
+<td>Load failure rate, crash rate trending up</td>
+<td>Publish-time health checks, downrank on failure</td>
+</tr>
+<tr>
+<td>Novelty beats utility</td>
+<td>Popularity proxy (views, upvotes) over depth</td>
+<td>Low weekly_return_ratio despite high creation volume</td>
+<td>Quality-weighted ranking, return-rate boosting</td>
+</tr>
+<tr>
+<td>Clone spam floods categories</td>
+<td>Cheap generation, no uniqueness filter</td>
+<td>High near-duplicate rate, keyword stuffing</td>
+<td>Similarity detection, rate limits, trust tier gating</td>
+</tr>
+<tr>
+<td>Rating inflation / Sybil attacks</td>
+<td>Unverified upvotes, botted engagement</td>
+<td>Spiky engagement patterns, low session depth</td>
+<td>Verified user weighting, behavioral fraud detection</td>
+</tr>
+<tr>
+<td>Badge laundering via forks</td>
+<td>Reputation inheritance on remix</td>
+<td>High abuse reports on forked verified apps</td>
+<td>Badge doesn't transfer, fork must re-qualify</td>
+</tr>
+<tr>
+<td>App rots trust</td>
+<td>Dependency drift, no maintenance incentive</td>
+<td>error_rate_7d_delta trending up, abandonment</td>
+<td>Decay downrank, maintenance rewards</td>
+</tr>
+</tbody>
+</table>
+<p>The a16z thesis for Wabi explicitly expects "professionalization" to emerge organically, comparing to YouTube's arc. But YouTube's professionalization required a decade of active platform investment in quality systems. The organic part was the creator response to those systems, not the systems themselves.</p>
+
+  </div>
+</section>
+
+<section id="cura-09-section-10" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.x · The abuse layer</div>
+
+<div class="section-number">10 | Governance</div>
+<h2 id="h-section-10">The Abuse Layer: Quality Is Not Just Curation</h2>
+<p>A curation stack without a governance layer is incomplete architecture. Quality in a UGS marketplace is not only about surfacing good apps. It is also about preventing malicious, deceptive, or harmful ones from reaching users at all.</p>
+<p>When any user can generate software through natural language, the attack surface expands beyond traditional app store threats. The generation layer itself becomes an abuse vector.</p>
+<h3>Platform-Specific Threats</h3>
+<ul class="styled-list">
+<li><strong>Prompt injection via app generation:</strong> Malicious prompts that embed data exfiltration, credential harvesting, or phishing interfaces into generated apps.</li>
+<li><strong>Clone spam:</strong> Automated generation of near-identical apps to flood discovery, drown organic apps, and game ranking signals.</li>
+<li><strong>Impersonation apps:</strong> Apps that mimic established brands, services, or creators to harvest trust or redirect users.</li>
+<li><strong>Data exfiltration:</strong> Generated apps that request permissions or collect user data beyond their stated function.</li>
+<li><strong>Adversarial remixing:</strong> Forking a trusted app and injecting harmful modifications that inherit the original's reputation signals.</li>
+</ul>
+<p>These threats are not hypothetical; every major UGC marketplace at scale has faced analogous attack patterns. The governance layer must operate as an independent system from the curation layer, with distinct ownership, escalation paths, and enforcement mechanisms. Curation answers "is this good?" Governance answers "is this safe?"</p>
+
+  </div>
+</section>
+
+<section id="cura-10-section-11">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.xi · The white space</div>
+
+<div class="section-number">11 | The Opportunity</div>
+<h2 id="h-section-11">The White Space Is Real and Time-Bound</h2>
+<p>Based on publicly available positioning (checked public docs, marketing surfaces, and product UX as of Feb 2026), no major UGS platform appears to publicly present systematic curation infrastructure as a named product layer. <abbr class="inference-badge" title="Derived from multiple evidence points, not explicitly stated by platform">[Inference]</abbr> This is not because the problem is invisible. It is because the generation race is consuming all available engineering attention.</p>
+<p>The window is specific: <abbr class="inference-badge" title="Forward-looking claim, not yet validated">[Hypothesis]</abbr> Between now and the point where library size exceeds manual curation capacity (plausibly within the next 1-2 growth cycles at current creation velocity), the curation architecture decisions will determine which platforms build durable marketplace trust and which drown in their own output.</p>
+<div class="prediction">
+<div class="prediction-label">Falsifiable Prediction</div>
+<p>By December 2027, at least one major UGS platform will have a named, public-facing quality tier system (analogous to Michelin stars, App Store editorial picks, or Airbnb Superhost) as a core product feature. The platform that builds it first will have measurably better D30 retention (percentage of new users active 30 days after first session) than competitors without it.</p>
+<p>If this doesn't happen, the UGS category may not survive as a distinct product category, because undifferentiated app generation will commoditize into a feature of existing platforms (ChatGPT, Claude, general-purpose AI assistants).</p>
+</div>
+<div class="prediction">
+<div class="prediction-label">Near-Term Prediction (Testable Now)</div>
+<p>Any UGS platform that adds publish-time health checks and decay-based downranking will see broken-app impressions in discovery drop within 30 days, with a corresponding improvement in D7 retention. This requires no algorithmic sophistication — just a load test on publish and an error rate monitor on a cron job.</p>
+</div>
+<h3>What Would Falsify This Thesis</h3>
+<ul class="styled-list">
+<li><strong>Generation quality becomes so high that curation is unnecessary.</strong> Every generated app is excellent by default. Possible but unlikely given current model limitations and the subjective nature of "quality" in personal software.</li>
+<li><strong>Users don't care about quality.</strong> The "disposable software" thesis wins: apps are used once and discarded, so durability and quality don't matter. This would mean UGS platforms compete purely on generation speed.</li>
+<li><strong>AI-native curation emerges as a commodity.</strong> Foundation model providers ship curation intelligence as a built-in feature, eliminating the need for platform-specific quality infrastructure.</li>
+</ul>
+
+  </div>
+</section>
+
+<section id="cura-11-section-12" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.xii · Minimum Viable Curation Stack</div>
+
+<div class="section-number">12 | The Implementation</div>
+<h2 id="h-section-12">Minimum Viable Curation Stack</h2>
+<p>For a UGS platform founder reading this on Monday morning, here is the minimum infrastructure that creates a quality advantage.</p>
+<div class="code-block">
+<span class="comment">// Minimum Viable Curation Stack (MVCS)</span><br/><br/>
+<span class="key">LAYER 1: Automated Health</span> <span class="comment">// Week 1-2</span><br/>
+<span class="val">  - Load test every app on publish (pass/fail)</span><br/>
+<span class="val">  - Interaction completeness check (buttons, forms, navigation)</span><br/>
+<span class="val">  - Responsive layout verification</span><br/>
+<span class="val">  - Error rate monitoring post-publish</span><br/><br/>
+<span class="key">LAYER 2: Usage Intelligence</span> <span class="comment">// Week 3-4</span><br/>
+<span class="val">  - Return rate tracking (used &gt; 1 time = signal)</span><br/>
+<span class="val">  - Session depth (time spent, actions taken)</span><br/>
+<span class="val">  - Remix genealogy (track forks and improvements)</span><br/>
+<span class="val">  - Decay detection (error rate increase over time)</span><br/><br/>
+<span class="key">LAYER 3: Quality Score</span> <span class="comment">// Week 5-6</span><br/>
+<span class="val">  - Composite score:</span><br/>
+<span class="val">    health_weight * health_signal</span><br/>
+<span class="val">    + usage_weight * retention_signal</span><br/>
+<span class="val">    + design_weight * heuristic_score</span><br/>
+<span class="val">    + freshness_decay_factor</span><br/>
+<span class="comment">    // weights calibrated via A/B retention experiments</span><br/>
+<span class="comment">    // reviewed quarterly against user satisfaction metrics</span><br/>
+<span class="val">  - Quality-weighted discovery feed (replace pure recency/popularity)</span><br/>
+<span class="val">  - Tier badges: Reference / Verified / Community / Unrated</span><br/><br/>
+<span class="key">LAYER 4: Editorial Intelligence</span> <span class="comment">// Week 7-8</span><br/>
+<span class="val">  - Golden sample library (10-20 reference apps per category)</span><br/>
+<span class="val">  - Weekly editorial picks (human judgment on top of algorithmic signals)</span><br/>
+<span class="val">  - Creator reputation score (quality track record across apps)</span><br/>
+<span class="val">  - Category benchmarking (best workout tracker, best CRM, best journal)</span><br/>
+</div>
+<h3>End-to-End Production Trace</h3>
+<p>One app's journey through the stack, from creation to maturity:</p>
+<div class="code-block">
+<span class="comment">// Production trace: single app lifecycle</span><br/><br/>
+<span class="key">PUBLISH (Day 0)</span><br/>
+<span class="val">  → L0: Creator identity verified, permission manifest declared</span><br/>
+<span class="val">  → L1: Load test (pass/fail), interaction completeness check</span><br/>
+<span class="val">  → If L1 fails: blocked from discovery, creator notified</span><br/>
+<span class="val">  → Initial tier: Unrated</span><br/><br/>
+<span class="key">DISCOVERY (Day 1-7)</span><br/>
+<span class="val">  → Cold-start exploration budget: app shown to sample cohort</span><br/>
+<span class="val">  → Quality score computed: Health + Design + Trust(creator_history)</span><br/>
+<span class="val">  → Ranked in category feed</span><br/><br/>
+<span class="key">USAGE (Day 7-30)</span><br/>
+<span class="val">  → L3 signals accumulate: return_rate, session_depth, time_to_value</span><br/>
+<span class="val">  → Score recomputed with behavioral data</span><br/>
+<span class="val">  → If weekly_return_ratio &gt; threshold → Community tier</span><br/><br/>
+<span class="key">MATURITY (Day 30-180)</span><br/>
+<span class="val">  → Sustained retention + quality → Verified tier eligible</span><br/>
+<span class="val">  → Editorial review → Reference tier candidate</span><br/><br/>
+<span class="key">DECAY WATCH (Ongoing)</span><br/>
+<span class="val">  → error_rate_7d_delta trending up → score penalized</span><br/>
+<span class="val">  → dependency_health_idx drops → creator alerted</span><br/>
+<span class="val">  → If abandoned + degraded → gracefully aged out of discovery</span>
+</div>
+<p>Eight weeks. A small team. The foundation of a curation moat that compounds as the library grows. Every week of delay at current creation velocity adds thousands of uncurated apps to the discovery problem.</p>
+
+  </div>
+</section>
+
+<section id="cura-12-section-13">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.xiii · Concrete signals</div>
+
+<div class="section-number">13 | Telemetry</div>
+<h2 id="h-section-13">Concrete Signals: What You Actually Measure</h2>
+<p>Abstract quality frameworks are useless without measurable telemetry. These are the signals a curation stack ingests, each mappable to a database column and a dashboard row.</p>
+<div class="code-block">
+<span class="comment">// Telemetry Schema: Core Curation Signals</span><br/><br/>
+<span class="key">app_load_success_rate</span>   <span class="comment">// % of sessions where app loads without error</span><br/>
+<span class="key">error_rate_7d_delta</span>    <span class="comment">// change in error rate over trailing 7 days (decay detection)</span><br/>
+<span class="key">weekly_return_ratio</span>    <span class="comment">// users who return within 7 days / total users</span><br/>
+<span class="key">session_depth_p50</span>     <span class="comment">// median actions per session (engagement proxy)</span><br/>
+<span class="key">remix_depth_score</span>     <span class="comment">// generations of forks from this app (compounding signal)</span><br/>
+<span class="key">dependency_health_idx</span> <span class="comment">// % of external APIs/integrations still responding</span><br/>
+<span class="key">creator_maint_freq</span>    <span class="comment">// days since creator last updated or responded to feedback</span><br/>
+<span class="key">time_to_value_p50</span>     <span class="comment">// median seconds from first open to first meaningful action</span><br/>
+<span class="key">interaction_completeness</span><span class="comment">// % of UI elements that trigger a response when activated</span><br/>
+<span class="key">curation_score_version</span> <span class="comment">// allows historical re-scoring when weight models update</span><br/>
+</div>
+<p>Ten signals. Each observable, each automatable, each meaningful in isolation and composite. A platform team could instrument these in a sprint and begin building quality intelligence immediately.</p>
+
+  </div>
+</section>
+
+<section id="cura-13-section-14" class="dim">
+  <div class="essay prose">
+    <div class="eyebrow sage">II.xiv · Build it before you need it</div>
+
+<div class="section-number">14 | The Claim</div>
+<h2 id="h-section-14">Build the Quality Layer Before You Need It</h2>
+<p>The platforms that build curation infrastructure early are building durable competitive advantages. The ones that wait will spend 10x the resources retroactively sorting through a library that has already trained users to expect noise.</p>
+<p>This is the same lesson luxury brands learned over centuries, compressed into a platform lifecycle. Quality systems don't scale retroactively. They must be architectural, designed into the platform from early days, not bolted on after the feed is already broken.</p>
+<div class="thesis-box">
+<p>Generation is the cost of entry. Curation is the cost of survival. The platforms that confuse volume for value will not outlast the ones that invest in making quality legible, discoverable, and rewarding for creators.</p>
+</div>
+<p>The curation problem is not new. It's the same problem Hermès, Michelin, YouTube, and Airbnb solved in their respective domains. The tools are different. The principles are identical. Systematic evaluation, independent judgment, legible quality signals, and incentive alignment between platform, creator, and user.</p>
+<p>The question isn't whether UGS platforms will need a curation stack. It's whether they'll build it before the library outgrows their ability to retrofit it.</p>
+
+  </div>
+</section>
+
+<section id="cura-14-section-refs">
+  <div class="essay prose">
+    <div class="eyebrow sage">§ · Sources &amp; further reading</div>
+
+<div class="section-number">References</div>
+<h2 id="h-section-refs">Sources &amp; Further Reading</h2>
+<h3>Primary Sources (Platform Pages &amp; Documentation)</h3>
+<table class="comp-table">
+<thead>
+<tr>
+<th scope="col">Platform</th>
+<th scope="col">Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wabi</td>
+<td><a href="https://wabi.ai" rel="noopener noreferrer" target="_blank">wabi.ai</a> | Personal software platform for mini‑apps</td>
+</tr>
+<tr>
+<td>Anything</td>
+<td><a href="https://www.createanything.com" rel="noopener noreferrer" target="_blank">createanything.com</a> | AI app builder, formerly Create.xyz</td>
+</tr>
+<tr>
+<td>Replit</td>
+<td><a href="https://replit.com" rel="noopener noreferrer" target="_blank">replit.com</a> | Developer platform with AI generation</td>
+</tr>
+<tr>
+<td>Lovable</td>
+<td><a href="https://lovable.dev" rel="noopener noreferrer" target="_blank">lovable.dev</a> | Design-forward AI code generation</td>
+</tr>
+<tr>
+<td>GPT Store</td>
+<td><a href="https://openai.com/index/introducing-the-gpt-store/" rel="noopener noreferrer" target="_blank">openai.com/gpt-store</a> | Custom GPT marketplace announcement</td>
+</tr>
+</tbody>
+</table>
+<h3>Secondary Sources (Press &amp; Commentary)</h3>
+<table class="comp-table">
+<thead>
+<tr>
+<th scope="col">Topic</th>
+<th scope="col">Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wabi Funding</td>
+<td><a href="https://techcrunch.com/2025/11/05/replika-founder-raises-20m-pre-seed-for-wabi-the-youtube-of-apps/" rel="noopener noreferrer" target="_blank">TechCrunch</a> | "Replika founder raises $20M pre-seed for Wabi" (Nov 2025)</td>
+</tr>
+<tr>
+<td>Anything Community</td>
+<td><a href="https://www.producthunt.com/products/anything-2" rel="noopener noreferrer" target="_blank">Product Hunt</a> | Anything launch and community discussion</td>
+</tr>
+</tbody>
+</table>
+<h3>Analog References (Quality System Precedents)</h3>
+<table class="comp-table">
+<thead>
+<tr>
+<th scope="col">Domain</th>
+<th scope="col">Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enterprise Evaluation</td>
+<td><a href="https://mustbesimo.github.io/tasteinfra/" rel="noopener noreferrer" target="_blank">The Taste Layer</a> | Companion manifesto on enterprise AI evaluation infrastructure</td>
+</tr>
+<tr>
+<td>YouTube Quality Arc</td>
+<td>Based on publicly documented YouTube Partner Program history, Creator monetization policy changes (2007-2025), and <a href="https://support.google.com/youtube/answer/72851" rel="noopener noreferrer" target="_blank">YouTube Partner Program official documentation</a></td>
+</tr>
+<tr>
+<td>Michelin Guide</td>
+<td>Quality tier methodology synthesized from public Michelin Guide methodology descriptions and restaurant industry analysis</td>
+</tr>
+<tr>
+<td>Luxury Manufacturing</td>
+<td>Golden sample methodology derived from author's 16 years in luxury brand quality systems (Fendi, Bentley, Porsche)</td>
+</tr>
+</tbody>
+</table>
+<h3>Evidence Label Legend</h3>
+<div>
+<p><strong>[Evidence]</strong> – Directly supported by linked public documentation, product UI, press coverage, or official platform materials.</p>
+<p><strong>[Inference]</strong> – Derived from multiple evidence points, observed product behavior, or publicly available positioning. Not explicitly stated by the platform but reasonably concluded from available information.</p>
+<p><strong>[Hypothesis]</strong> – Forward-looking claim, prediction, or proposed framework not yet validated. Presented as testable thesis.</p>
+<p><strong>[Unverified]</strong> – Specific data point (e.g., a number or date) that cannot be confirmed from a stable, citable source. Included for directional context only.</p>
+</div>
+<p>
+<strong>Platform assessments:</strong> Based on publicly available positioning, documentation, and press coverage as of February 2026. Internal product roadmaps may differ from public positioning. All comparative claims are labeled with evidence type to maintain analytical transparency.</p>
+<p>
+<strong>Research method:</strong> Evidence sources include platform landing pages, press releases, public API documentation, observed UX behavior (as of Feb 2026), investor announcements, published user reviews, and publicly documented policy frameworks. Claims not directly verifiable from these sources are explicitly labeled <abbr class="inference-badge" title="Derived from multiple evidence points, not explicitly stated by platform">[Inference]</abbr> or <abbr class="inference-badge" title="Forward-looking claim, not yet validated">[Hypothesis]</abbr> throughout the document.
+    </p>
+
+  </div>
+</section>
+<section id="epilogue" class="terracotta">
+  <div class="essay">
+    <div class="eyebrow" style="color: rgba(244,239,230,0.7);"><span class="num" style="color:#fff;">E</span>Epilogue</div>
+    <h2 class="rise" style="font-size: clamp(36px, 5.5vw, 76px);"><span>Build the quality layer</span></h2>
+    <h2 class="rise" style="font-size: clamp(36px, 5.5vw, 76px); font-style: italic;"><span>before you need it.</span></h2>
+    <p class="reveal" style="font-size: var(--size-lede); color: rgba(244,239,230,0.92); max-width: 36ch; margin-top: 32px;">Generation is commoditizing. Evaluation is scarce. The question, at every altitude, is the same: <em>can you tell the good from the bad, prove it, and keep doing it as the world drifts?</em></p>
+    <div class="hero-meta reveal" style="--rd: 300ms; margin-top: 56px; color: rgba(244,239,230,0.8);">
+      <span>Simone Leonelli</span><span>Studio W230</span><span>May 2026</span>
+    </div>
+  </div>
+</section>
+<footer>
+  <span>© 2026 <span class="sig">Studio W230</span> · Legibility Engineering</span>
+  <span>The Taste Layer · v1.0 · May 2026</span>
+  <span><a href="https://github.com/MustBeSimo/taste-layer">Source</a></span>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>

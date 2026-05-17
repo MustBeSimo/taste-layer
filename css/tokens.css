@@ -1,0 +1,91 @@
+/* ============================================================
+   TASTE LAYER — Design Tokens
+   Foundation:   AiVizWiz "sumi on washi" — Japanese minimal
+   Palette:      pale terracotta · sage · light dirty blue
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap');
+
+:root {
+  --paper:           #f4efe6;
+  --paper-soft:      #ebe4d5;
+  --paper-deep:      #e0d8c2;
+  --ink:             #1a1814;
+  --ink-2:           #3a352e;
+  --ink-3:           #5a5246;
+  --mute:            #6b6357;
+  --mute-2:          #9a917f;
+  --line:            #d8d0bc;
+  --line-soft:       #e4ddc9;
+  --line-strong:     #1a1814;
+
+  --terracotta:      #c97b5a;
+  --terracotta-deep: #a56145;
+  --terracotta-soft: #e0a892;
+  --sage:            #9caf9c;
+  --sage-deep:       #7a8d7a;
+  --sage-soft:       #c2cfc2;
+  --dirty-blue:      #6b8294;
+  --dirty-blue-deep: #4f6677;
+  --dirty-blue-soft: #a3b4c1;
+
+  --bg:              var(--paper);
+  --bg-soft:         var(--paper-soft);
+  --surface:         var(--paper-soft);
+  --surface-raised:  var(--paper-deep);
+  --accent:          var(--terracotta);
+  --accent-deep:     var(--terracotta-deep);
+  --pop:             var(--terracotta);
+
+  --type-display:    'Instrument Serif', Georgia, serif;
+  --type-sans:       'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --type-mono:       'Geist Mono', ui-monospace, monospace;
+
+  --size-hero:       clamp(48px, 9vw, 132px);
+  --size-h1:         clamp(40px, 6vw, 88px);
+  --size-h2:         clamp(28px, 4vw, 52px);
+  --size-h3:         clamp(20px, 2.2vw, 28px);
+  --size-body:       clamp(16px, 1.15vw, 19px);
+  --size-lede:       clamp(20px, 1.6vw, 26px);
+  --size-small:      14px;
+  --size-micro:      12px;
+
+  --space-1: 8px;  --space-2: 16px; --space-3: 24px; --space-4: 40px;
+  --space-5: 64px; --space-6: 96px; --space-7: 144px; --space-8: 200px;
+
+  --ease:            cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out-expo:   cubic-bezier(0.77, 0, 0.18, 1);
+  --dur-fast:        180ms;
+  --dur:             380ms;
+  --dur-slow:        820ms;
+
+  --max-essay:       720px;
+  --max-wide:        1120px;
+  --gutter:          clamp(24px, 5vw, 80px);
+
+  --shadow-soft:     0 1px 2px rgba(26, 24, 20, 0.04), 0 8px 32px rgba(26, 24, 20, 0.06);
+  --shadow-card:     0 1px 1px rgba(26, 24, 20, 0.05), 0 12px 40px rgba(26, 24, 20, 0.08);
+}
+
+:root[data-theme="dark"] {
+  --paper:           #0f0e0c;
+  --paper-soft:      #1a1816;
+  --paper-deep:      #252220;
+  --ink:             #f3eee0;
+  --ink-2:           #d6cfbd;
+  --ink-3:           #b3ad9c;
+  --mute:            #8a8373;
+  --mute-2:          #4a443c;
+  --line:            #2d2a26;
+  --line-soft:       #1f1d1a;
+  --line-strong:     #f3eee0;
+  --bg:              var(--paper);
+  --bg-soft:         var(--paper-soft);
+  --surface:         var(--paper-soft);
+  --surface-raised:  var(--paper-deep);
+  --terracotta:      #e89476;
+  --sage:            #b3c4b3;
+  --dirty-blue:      #8aa1b3;
+  --accent:          var(--terracotta);
+  --pop:             var(--terracotta);
+}

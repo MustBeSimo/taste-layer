@@ -1,0 +1,499 @@
+/* ============================================================
+   TASTE LAYER — Layout & Typography  (v2 — polished rhythm)
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--type-sans);
+  font-size: var(--size-body);
+  line-height: 1.65;
+  font-feature-settings: 'ss01', 'cv02', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.006em;
+  overflow-x: hidden;
+  padding-top: 56px; /* topnav offset */
+}
+::selection { background: var(--terracotta-soft); color: var(--ink); }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(26,24,20,0.14); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(26,24,20,0.30); }
+
+/* ——— Typography ——— */
+h1, h2, h3, h4 {
+  font-family: var(--type-display);
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 1.04;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.hero-title {
+  font-size: clamp(40px, 8.5vw, 120px);
+  line-height: 0.94;
+  letter-spacing: -0.034em;
+}
+h1, .h1 { font-size: clamp(36px, 5.6vw, 76px); line-height: 1.0; }
+h2, .h2 { font-size: clamp(30px, 4.2vw, 56px); line-height: 1.06; margin-top: 0; }
+h3, .h3 { font-size: clamp(20px, 2.2vw, 28px); line-height: 1.25; font-weight: 500; }
+
+p { color: var(--ink-2); max-width: 62ch; }
+.lede {
+  font-size: clamp(19px, 1.7vw, 24px);
+  color: var(--ink);
+  line-height: 1.48;
+  max-width: 34ch;
+  font-weight: 400;
+}
+em { font-style: italic; }
+strong { font-weight: 600; color: var(--ink); }
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--terracotta);
+  padding-bottom: 1px;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+a:hover { color: var(--terracotta-deep); border-color: var(--terracotta-deep); }
+code, .mono { font-family: var(--type-mono); font-size: 0.92em; color: var(--ink); }
+
+/* ——— Layout containers ——— */
+.essay  { max-width: var(--max-essay); margin: 0 auto; padding: 0 var(--gutter); }
+.wide   { max-width: var(--max-wide);  margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ——— Section base — fluid rhythm, not fixed monolith ——— */
+section {
+  padding: clamp(64px, 9vw, 128px) 0;
+  position: relative;
+}
+section + section { border-top: 1px solid var(--line-soft); }
+section.dim { background: var(--paper-soft); }
+section.darker { background: var(--paper-deep); }
+section.terracotta { background: var(--terracotta); color: var(--paper); }
+section.terracotta p { color: rgba(244, 239, 230, 0.92); }
+section.terracotta h1,
+section.terracotta h2,
+section.terracotta h3 { color: var(--paper); }
+
+/* ——— Hero — first section, more breathing room ——— */
+.hero-shell {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(96px, 14vw, 168px) 0;
+}
+.hero-title .mark { color: var(--terracotta); font-style: italic; }
+.hero-sub {
+  font-size: clamp(18px, 1.5vw, 22px);
+  color: var(--ink-2);
+  max-width: 44ch;
+  margin-top: clamp(20px, 2.4vw, 32px);
+  line-height: 1.55;
+}
+.hero-meta {
+  margin-top: clamp(36px, 5vw, 64px);
+  font-family: var(--type-mono);
+  font-size: 11px;
+  color: var(--mute);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: flex;
+  gap: 18px 32px;
+  flex-wrap: wrap;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 10px; }
+.hero-meta span::before {
+  content: "";
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--terracotta);
+  flex-shrink: 0;
+}
+
+/* ——— Eyebrow — ALWAYS on its own line above the heading ——— */
+.eyebrow {
+  display: flex !important;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--type-sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--mute);
+  margin: 0 0 clamp(20px, 2.4vw, 32px) 0;
+  width: max-content;
+  max-width: 100%;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+  flex-shrink: 0;
+}
+.eyebrow .num { color: var(--ink); font-weight: 600; }
+.eyebrow.blue  { color: var(--dirty-blue-deep); }
+.eyebrow.sage  { color: var(--sage-deep); }
+.eyebrow.terra { color: var(--terracotta-deep); }
+
+/* ——— Chapter divider — full bleed, centered, framed ——— */
+.chapter-mark {
+  padding: clamp(80px, 12vw, 144px) 0;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, var(--paper-soft) 0%, transparent 70%),
+    var(--bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.chapter-mark::before,
+.chapter-mark::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 32px;
+  background: var(--line);
+  transform: translateX(-50%);
+}
+.chapter-mark::before { top: 0; }
+.chapter-mark::after  { bottom: 0; }
+.chapter-mark .roman {
+  font-family: var(--type-display);
+  font-size: clamp(72px, 12vw, 140px);
+  color: var(--ink);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 0.9;
+  margin-bottom: clamp(16px, 1.6vw, 24px);
+}
+.chapter-mark .ch-name {
+  font-family: var(--type-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--mute);
+  margin-bottom: 12px;
+}
+.chapter-mark .ch-title {
+  font-family: var(--type-display);
+  font-size: clamp(24px, 3.4vw, 40px);
+  color: var(--ink);
+  font-style: italic;
+  line-height: 1.2;
+  max-width: 22ch;
+  margin: 0 auto;
+}
+
+/* ——— Prose flow ——— */
+.prose > * + * { margin-top: clamp(18px, 1.8vw, 26px); }
+.prose p { font-size: var(--size-body); color: var(--ink-2); }
+.prose h2 { margin-top: clamp(40px, 5vw, 72px); }
+.prose h3 { margin-top: clamp(28px, 3.2vw, 40px); margin-bottom: 4px; }
+.prose ul, .prose ol { padding-left: 24px; }
+.prose li {
+  margin-top: 10px;
+  color: var(--ink-2);
+  padding-left: 6px;
+}
+.prose li::marker { color: var(--terracotta); }
+
+/* The eyebrow + first heading combo gets tightened */
+.eyebrow + h1,
+.eyebrow + h2 { margin-top: 0 !important; }
+
+/* ——— Pull quote — editorial drama ——— */
+.pull {
+  font-family: var(--type-display);
+  font-style: italic;
+  font-size: clamp(26px, 3.8vw, 44px);
+  line-height: 1.2;
+  color: var(--ink);
+  border-left: 2px solid var(--terracotta);
+  padding-left: clamp(20px, 2.4vw, 32px);
+  margin: clamp(36px, 4.5vw, 64px) 0;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+/* ——— Callout — refined card ——— */
+.callout {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--terracotta);
+  padding: clamp(20px, 2.4vw, 32px) clamp(24px, 3vw, 40px);
+  margin: clamp(28px, 3.4vw, 44px) 0;
+  border-radius: 3px;
+}
+section.dim .callout { background: var(--paper); }
+.callout.sage  { border-left-color: var(--sage-deep); }
+.callout.blue  { border-left-color: var(--dirty-blue); }
+.callout .ck-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--terracotta-deep);
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+.callout.sage .ck-label { color: var(--sage-deep); }
+.callout.blue .ck-label { color: var(--dirty-blue-deep); }
+
+/* ——— Grids ——— */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 28px);
+  margin: clamp(28px, 3.2vw, 44px) 0;
+}
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.5vw, 20px);
+  margin: clamp(24px, 3vw, 40px) 0;
+}
+@media (max-width: 760px) {
+  .two-col, .three-col { grid-template-columns: 1fr; }
+}
+
+/* ——— Box — refined card with proper hierarchy ——— */
+.box {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: clamp(22px, 2.6vw, 32px);
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  transition:
+    transform var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+section.dim .box { background: var(--paper); }
+.box:hover {
+  transform: translateY(-3px);
+  border-color: var(--terracotta);
+  box-shadow: 0 1px 0 var(--terracotta), 0 12px 32px rgba(26, 24, 20, 0.08);
+}
+a.box {
+  border-bottom: 1px solid var(--line);  /* override anchor underline */
+  color: var(--ink);
+}
+a.box:hover { color: var(--ink); }
+.box .label-s {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--mute);
+  margin-bottom: 12px;
+  display: block;
+  font-weight: 500;
+}
+.box .value {
+  font-family: var(--type-display);
+  font-size: clamp(26px, 3.4vw, 38px);
+  color: var(--ink);
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+}
+.box .small {
+  font-size: 14px;
+  color: var(--mute);
+  margin-top: 14px;
+  line-height: 1.55;
+}
+.box.terra { border-left: 3px solid var(--terracotta); }
+.box.sage  { border-left: 3px solid var(--sage-deep); }
+.box.blue  { border-left: 3px solid var(--dirty-blue); }
+.box.terra .label-s { color: var(--terracotta-deep); }
+.box.sage  .label-s { color: var(--sage-deep); }
+.box.blue  .label-s { color: var(--dirty-blue-deep); }
+
+/* ——— Stack diagram — L0-L4 ——— */
+.stack-rail {
+  margin: clamp(28px, 3.2vw, 44px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.stack-rail .layer {
+  display: grid;
+  grid-template-columns: 64px 1.2fr 2fr;
+  gap: clamp(16px, 2vw, 28px);
+  padding: clamp(20px, 2.4vw, 28px);
+  background: var(--paper);
+  align-items: baseline;
+  transition: background var(--dur) var(--ease);
+}
+.stack-rail .layer + .layer { border-top: 1px solid var(--line-soft); }
+.stack-rail .layer:hover { background: var(--paper-soft); }
+.stack-rail .layer .lvl {
+  font-family: var(--type-mono);
+  font-size: 13px;
+  color: var(--terracotta-deep);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+.stack-rail .layer .nm {
+  font-family: var(--type-display);
+  font-size: clamp(20px, 2.2vw, 26px);
+  color: var(--ink);
+  line-height: 1.2;
+}
+.stack-rail .layer .ds {
+  font-size: 15px;
+  color: var(--mute);
+  line-height: 1.55;
+}
+@media (max-width: 760px) {
+  .stack-rail .layer {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 18px 20px;
+  }
+}
+
+/* ——— Top nav — minimal, glass ——— */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  height: 56px;
+  padding: 0 var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.topnav .brand {
+  font-family: var(--type-display);
+  font-style: italic;
+  font-size: clamp(16px, 1.4vw, 19px);
+  color: var(--ink);
+  border: none;
+  letter-spacing: -0.008em;
+}
+.topnav .brand:hover { color: var(--terracotta); }
+.topnav .meta {
+  font-family: var(--type-mono);
+  font-size: 11px;
+  color: var(--mute);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.topnav .theme {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--type-mono);
+  font-size: 11px;
+  padding: 7px 14px;
+  cursor: pointer;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  transition: all var(--dur) var(--ease);
+}
+.topnav .theme:hover { border-color: var(--terracotta); color: var(--terracotta); }
+@media (max-width: 720px) {
+  .topnav .meta { display: none; }
+}
+
+/* ——— Progress bar ——— */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--terracotta);
+  width: 0%;
+  z-index: 60;
+  transition: width 60ms linear;
+}
+
+/* === FIX 1: widen the prose, give cards a wider container === */
+:root {
+  --max-essay:    860px;   /* was 720 — too narrow on wide screens */
+  --max-wide:     1240px;  /* for chapter-card grids, chapter marks, hero */
+  --max-reading:  680px;   /* paragraphs themselves stay ~62ch for legibility */
+}
+
+/* The .essay container is now the OUTER frame; prose <p> still tucks to 62ch */
+.essay { max-width: var(--max-essay); margin: 0 auto; padding: 0 var(--gutter); }
+.wide  { max-width: var(--max-wide);  margin: 0 auto; padding: 0 var(--gutter); }
+
+/* === FIX 2: eyebrow MUST be block-level above the heading === */
+.eyebrow {
+  display: flex !important;
+  align-items: center;
+  gap: 14px;
+  width: 100% !important;
+  max-width: 100%;
+  margin: 0 0 clamp(20px, 2.4vw, 32px) 0;
+  /* push the rule to its own line — h2 starts fresh */
+}
+
+/* Ensure h2 after eyebrow drops fully */
+.eyebrow + h1,
+.eyebrow + h2,
+.eyebrow + h3 {
+  margin-top: 0 !important;
+  clear: both;
+  display: block;
+}
+
+/* === FIX 3: lede shouldn't be max-width: 34ch — wider reads better here === */
+.lede {
+  max-width: 48ch;
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.45;
+}
+
+/* === FIX 4: chapter cards in a wider grid + better proportions === */
+.contents-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 2.5vw, 36px);
+  margin: clamp(36px, 4.5vw, 56px) 0 0;
+  max-width: var(--max-wide);
+}
+@media (max-width: 760px) { .contents-grid { grid-template-columns: 1fr; } }
+
+.chapter-card {
+  padding: clamp(36px, 4vw, 56px);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chapter-card .small {
+  max-width: 42ch;       /* keep the description from going skinny-tall */
+  margin-top: 12px;
+}
+
+/* === FIX 5: hero gets the wide container too === */
+.hero-shell .essay { max-width: var(--max-wide); }
+.hero-shell .hero-sub { max-width: 56ch; }
+.hero-shell .hero-meta { max-width: 100%; }
+
+/* === FIX 6: chapter marks span wide === */
+.chapter-mark .essay,
+.chapter-mark > .essay { max-width: var(--max-wide); }
+
+/* === FIX 7: terracotta sections (bridge, epilogue) wide === */
+section.terracotta .essay { max-width: var(--max-wide); }
+
+/* === FIX 8: footer wide === */
+footer { padding-inline: clamp(24px, 5vw, 80px); max-width: 100%; }

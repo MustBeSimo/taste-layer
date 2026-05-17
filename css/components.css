@@ -1,0 +1,194 @@
+/* ============================================================
+   TASTE LAYER — Components (footer, refs, tables, diagrams)
+   ============================================================ */
+
+/* ——— Footer ——— */
+footer {
+  padding: clamp(48px, 6vw, 80px) var(--gutter);
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--mute);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+  background: var(--paper-soft);
+}
+footer .sig { font-family: var(--type-display); font-style: italic; color: var(--ink); }
+footer a { color: var(--mute); border-color: var(--line); }
+footer a:hover { color: var(--terracotta); }
+
+/* ——— References ——— */
+.refs { font-size: 15px; padding-left: 0 !important; list-style: none; }
+.refs li {
+  margin-top: 14px;
+  padding-left: 20px;
+  position: relative;
+}
+.refs li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 11px;
+  width: 8px; height: 1px;
+  background: var(--terracotta);
+}
+.refs a { color: var(--ink-2); border-color: var(--line); }
+.refs a:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+/* ——— Tables ——— */
+table {
+  width: 100%;
+  margin: clamp(24px, 3vw, 40px) 0;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th, td {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+th {
+  font-family: var(--type-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--mute);
+  background: var(--paper-soft);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ——— Back link on chapter pages ——— */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--mute);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: none;
+  font-weight: 500;
+  transition: color var(--dur) var(--ease), gap var(--dur) var(--ease);
+}
+.back-link:hover { color: var(--terracotta); gap: 12px; }
+
+/* ——— SVG diagrams from source ——— */
+.diagram-container {
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: clamp(20px, 2.4vw, 32px);
+  margin: clamp(24px, 3vw, 40px) 0;
+}
+section.dim .diagram-container { background: var(--paper); }
+.diagram-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--mute);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.diagram-container svg { width: 100%; height: auto; max-width: 100%; }
+.diagram-container svg text { font-family: var(--type-sans) !important; }
+
+/* ——— Chapter card (landing-page big chapter links) ——— */
+.chapter-card {
+  padding: clamp(32px, 4vw, 56px) clamp(28px, 3.4vw, 44px);
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chapter-card .value { font-size: clamp(28px, 3.6vw, 44px); }
+.chapter-card .arrow {
+  margin-top: auto;
+  font-family: var(--type-sans);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.chapter-card:hover .arrow { gap: 14px; color: var(--terracotta); }
+
+/* ——— Code blocks (from source) ——— */
+.prose pre,
+pre.code {
+  font-family: var(--type-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--terracotta);
+  padding: clamp(16px, 1.8vw, 24px);
+  margin: clamp(20px, 2.4vw, 32px) 0;
+  border-radius: 3px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  white-space: pre;
+}
+section.dim .prose pre,
+section.dim pre.code { background: var(--paper); }
+.prose code {
+  font-family: var(--type-mono);
+  font-size: 0.92em;
+  padding: 2px 6px;
+  background: var(--paper-soft);
+  border-radius: 2px;
+  border: 1px solid var(--line-soft);
+}
+.prose pre code {
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: inherit;
+}
+
+/* ——— Constrain any source-authored grids inside .prose ——— */
+.prose .box {
+  margin: clamp(18px, 2vw, 28px) 0;
+  display: block;        /* override any leftover inline display:grid */
+  max-width: 100%;
+}
+.prose .box .box-label,
+.prose .box-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--terracotta-deep);
+  display: block;
+  margin-bottom: 10px;
+}
+.prose .box ul,
+.prose .box ol {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+.prose .box li {
+  font-size: 14px;
+  line-height: 1.55;
+  margin-top: 6px;
+}
+
+/* If source had a grid-col-2 wrapper, make it stack instead */
+.prose [class*="grid-col"],
+.prose div[style*="grid-template-columns"] {
+  display: block !important;
+  grid-template-columns: none !important;
+}
+
+/* SVG diagram containers from source — keep them confined */
+.prose svg { max-width: 100%; height: auto; display: block; margin: 16px auto; }
+
+/* Source-authored side-by-side strong/em groups */
+.prose strong + br + span,
+.prose .box strong { font-weight: 600; color: var(--ink); }
