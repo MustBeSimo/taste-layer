@@ -96,6 +96,7 @@
     <span class="status-dot" id="keyStatusDot"></span>
     <input type="password" id="apiKeyInput" placeholder="Gemini API key (stored in browser localStorage)" autocomplete="off" />
     <button class="btn" id="saveKeyBtn" type="button">Set key</button>
+    <span style="font-size: 11px; color: var(--ink-3); font-family: var(--type-sans);">Stored in browser only. Revoke keys you enter here.</span>
   </div>
   <p style="font-size: var(--size-xsmall); color: var(--mute); margin: calc(var(--space-2) * -1) 0 var(--space-3); padding: 0 var(--space-3);">
     ⚠️ Key is stored in your browser. Do not use on shared devices.
@@ -216,9 +217,8 @@ async function callGemini(prompt, systemInstruction) {
     body.systemInstruction = { parts: [{ text: systemInstruction }] };
   }
 
-  const res = await fetch(GEMINI_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
+  const res = await fetch(`${GEMINI_URL}`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
     body: JSON.stringify(body)
   });
   const data = await res.json();
@@ -355,13 +355,13 @@ Return a JSON object ONLY, no other text. Use this exact format:
       Object.entries(json.breakdown).forEach(([key, val]) => {
         const el = document.createElement('div');
         el.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; font-size: var(--size-small); border-bottom: 1px solid var(--line-soft);';
-        const labelEl = document.createElement('span');
-        labelEl.textContent = key;
-        const valEl = document.createElement('span');
-        valEl.style.fontWeight = '600';
-        valEl.textContent = `${val}/20`;
-        el.appendChild(labelEl);
-        el.appendChild(valEl);
+        const kSpan = document.createElement('span');
+        kSpan.textContent = key;
+        const vSpan = document.createElement('span');
+        vSpan.textContent = val + '/20';
+        vSpan.style.fontWeight = '600';
+        el.appendChild(kSpan);
+        el.appendChild(vSpan);
         breakdownList.appendChild(el);
       });
     }
