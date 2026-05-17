@@ -16,13 +16,13 @@
        TASTECI — Page Overrides
        ======================================== */
 
-    */.page-wrap { max-width: 840px; margin: 0 auto; padding: var(--space-4) var(--gutter); }
+    .page-wrap { max-width: 840px; margin: 0 auto; padding: var(--space-4) var(--gutter); }
     .page-wrap h1 { font-family: var(--type-display); font-size: var(--size-h1); line-height: 1.1; margin: 0 0 var(--space-1); }
-    .page-wrap .subtitle { font-size: var(--size-lede); color: var(--ink-3); margin-bottom: var(--space-4); }
+    .page-wrap .subtitle { font-size: var(--size-lede); color: var(--ink-2); margin-bottom: var(--space-4); }
     .page-wrap h2 { font-family: var(--type-display); font-size: var(--size-h3); margin: var(--space-4) 0 var(--space-2); }
     .page-wrap h3 { font-family: var(--type-sans); font-size: var(--size-body); font-weight: 600; margin: var(--space-3) 0 var(--space-1); }
-    label { display: block; font-family: var(--type-sans); font-size: var(--size-small); font-weight: 500; color: var(--ink-2); margin-bottom: var(--space-1); }
-    textarea, input[type="text"], input[type="password"] { width: 100%; font-family: var(--type-mono); font-size: var(--size-small); line-height: 1.6; padding: var(--space-2); border: 1px solid var(--line); border-radius:  background: var(--bg); color: var(--ink); resize: vertical; border-radius: 4px; transition: border-color var(--dur-fast) ease; box-sizing: border-box; }
+    label { display: block; font-family: var(--type-sans); font-size: var(--size-small); font-weight: 600; color: var(--ink-2); margin-bottom: var(--space-1); }
+    textarea, input[type="text"], input[type="password"] { width: 100%; font-family: var(--type-mono); font-size: var(--size-body); line-height: 1.6; padding: var(--space-2); border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); resize: vertical; transition: border-color var(--dur-fast) ease; box-sizing: border-box; }
     textarea:focus, input:focus { outline: none; border-color: var(--accent); }
     textarea { min-height: 120px; }
     textarea.output-input { min-height: 160px; }
@@ -39,7 +39,7 @@
     .api-key-bar .status-dot.set { background: var(--terracotta); }
     .step-section {  padding: var(--space-3); border: 1px solid var(--line); border-radius: 4px; margin-bottom: var(--space-3); }
     .step-section.active { border-color: var(--accent); }
-    .step-section .step-label { font-family: var(--type-sans); font-size: var(--size-small); font-weight: 600; color: var(--ink-3); margin-bottom: var(--space-2); }
+    .step-section .step-label { font-family: var(--type-sans); font-size: var(--size-body); font-weight: 600; color: var(--ink); margin-bottom: var(--space-2); }
     .step-section.active .step-label { color: var(--accent); }
     .step-number { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; 20px; border-radius: 50%; background: var(--surface-raised); font-size: 11px; font-weight: 700; margin-right: var(--space-1); }
     .step-section.active .step-number { background: var(--accent); color: var(--paper); }
