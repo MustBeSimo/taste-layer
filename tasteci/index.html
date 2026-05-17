@@ -94,9 +94,13 @@
   <!-- API Key -->
   <div class="api-key-bar">
     <span class="status-dot" id="keyStatusDot"></span>
-    <input type="password" id="apiKeyInput" placeholder="Gemini API key (stored locally)" />
+    <input type="password" id="apiKeyInput" placeholder="Gemini API key (stored in browser localStorage)" autocomplete="off" />
     <button class="btn" id="saveKeyBtn" type="button">Set key</button>
   </div>
+  <p style="font-size: var(--size-xsmall); color: var(--mute); margin: calc(var(--space-2) * -1) 0 var(--space-3); padding: 0 var(--space-3);">
+    ⚠️ Key is stored in your browser. Do not use on shared devices.
+    <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">Get a Gemini key →</a>
+  </p>
 
   <!-- Step 1: Brand Input -->
   <div class="step-section active" id="step1">
@@ -212,8 +216,9 @@ async function callGemini(prompt, systemInstruction) {
     body.systemInstruction = { parts: [{ text: systemInstruction }] };
   }
 
-  const res = await fetch(`${GEMINI_URL}?key=${key}`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
+  const res = await fetch(GEMINI_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
     body: JSON.stringify(body)
   });
   const data = await res.json();
@@ -350,7 +355,13 @@ Return a JSON object ONLY, no other text. Use this exact format:
       Object.entries(json.breakdown).forEach(([key, val]) => {
         const el = document.createElement('div');
         el.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; font-size: var(--size-small); border-bottom: 1px solid var(--line-soft);';
-        el.innerHTML = `<span>${key}</span><span style="font-weight: 600;">${val}/20</span>`;
+        const labelEl = document.createElement('span');
+        labelEl.textContent = key;
+        const valEl = document.createElement('span');
+        valEl.style.fontWeight = '600';
+        valEl.textContent = `${val}/20`;
+        el.appendChild(labelEl);
+        el.appendChild(valEl);
         breakdownList.appendChild(el);
       });
     }
