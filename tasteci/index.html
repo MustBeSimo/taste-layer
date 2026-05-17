@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TasteCI — CI/CD for taste in AI workflows</title>
+  <meta name="description" content="Turn taste into a build gate. Score AI outputs against your DESIGN.md before they ship." />
+  <meta name="author" content="Simone Leonelli" />
+  <meta property="og:title" content="TasteCI — CI/CD for taste in AI workflows" />
+  <meta property="og:description" content="Turn taste into a build gate. Score AI outputs against your DESIGN.md before they ship." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f4efe6'/%3E%3Ctext x='50' y='68' font-family='serif' font-size='56' text-anchor='middle' fill='%23c97b5a'%3E✓%3C/text%3E%3C/svg%3E" />
+  <script>(function(){try{var t=localStorage.getItem('tasteci-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}}())</script>
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <style>
+    /* ========================================
+       TASTECI — Page Overrides
+       ======================================== */
+
+    */.page-wrap { max-width: 840px; margin: 0 auto; padding: var(--space-4) var(--gutter); }
+    .page-wrap h1 { font-family: var(--type-display); font-size: var(--size-h1); line-height: 1.1; margin: 0 0 var(--space-1); }
+    .page-wrap .subtitle { font-size: var(--size-lede); color: var(--ink-3); margin-bottom: var(--space-4); }
+    .page-wrap h2 { font-family: var(--type-display); font-size: var(--size-h3); margin: var(--space-4) 0 var(--space-2); }
+    .page-wrap h3 { font-family: var(--type-sans); font-size: var(--size-body); font-weight: 600; margin: var(--space-3) 0 var(--space-1); }
+    label { display: block; font-family: var(--type-sans); font-size: var(--size-small); font-weight: 500; color: var(--ink-2); margin-bottom: var(--space-1); }
+    textarea, input[type="text"], input[type="password"] { width: 100%; font-family: var(--type-mono); font-size: var(--size-small); line-height: 1.6; padding: var(--space-2); border: 1px solid var(--line); border-radius:  background: var(--bg); color: var(--ink); resize: vertical; border-radius: 4px; transition: border-color var(--dur-fast) ease; box-sizing: border-box; }
+    textarea:focus, input:focus { outline: none; border-color: var(--accent); }
+    textarea { min-height: 120px; }
+    textarea.output-input { min-height: 160px; }
+    .btn-row { display: flex; gap: var(--space-2); margin-top: var(--space-2); flex-wrap: wrap; }
+    .btn {font-family: var(--type-sans); font-size: var(--size-small); font-weight: 600; padding: var(--space-1) var(--space-3); border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; border-radius: 4px; transition: all var(--dur-fast) ease; }
+    .btn:hover { background: var(--line); }
+    .btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .btn-primary:hover { background: var(--ink-2); }
+    .btn-primary:disabled, .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .api-key-bar { display: flex;  gap: var(--space-2); align-items: center; flex-wrap: wrap; padding: var(--space-2) var(--space-3); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; margin-bottom: var(--space-4); }
+    .api-key-bar input { flex: 1; min-width: 180px; }
+    .api-key-bar .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mute-2); flex-shrink: 0; }
+    .api-key-bar .status-dot.ok { background: var(--sage); }
+    .api-key-bar .status-dot.set { background: var(--terracotta); }
+    .step-section {  padding: var(--space-3); border: 1px solid var(--line); border-radius: 4px; margin-bottom: var(--space-3); }
+    .step-section.active { border-color: var(--accent); }
+    .step-section .step-label { font-family: var(--type-sans); font-size: var(--size-small); font-weight: 600; color: var(--ink-3); margin-bottom: var(--space-2); }
+    .step-section.active .step-label { color: var(--accent); }
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; 20px; border-radius: 50%; background: var(--surface-raised); font-size: 11px; font-weight: 700; margin-right: var(--space-1); }
+    .step-section.active .step-number { background: var(--accent); color: var(--paper); }
+    .result-card { display: none; margin-top: var(--space-3); padding: var(--space-3); border: 1px solid var(--line); border-radius: 4px; }
+    .result-card.visible { display: block; }
+    .result-card.pass { border-color: var(--sage); }
+    .result-card.fail { border-color: var(--terracotta); ; }
+    .result-header { display: flex; align-items: center;  gap: var(--space-3); margin-bottom: var(--space-3); flex-wrap: wrap; }
+    .result-score { font-family: var(--type-display); font-size: var(--size-h2); line-height: 1; }
+    .result-verdict { font-family: var(--size-body); font-weight: 600;  padding: 4px 12px; border-radius: 3px; }
+    .result-verdict.PASS { background: var(--sage-soft); color: var(--sage-deep); }
+    .result-verdict.FAIL { background: var(--terracotta-soft); color: var(--terracotta-deep); }
+    .result-section { margin-bottom: var(--space-2); }
+    .result-section h3 { font-family: var(--type-sans); font-size: var(--size-small); font-weight: 700; color: var(--ink-3); margin: 0 0 var(--space-1); text-transform: uppercase; letter-spacing: 0.5px; }
+    .violation { padding: var(--space-1) var(--space-2); margin-bottom: var(--space-1); border-left: 2px solid var(--terracotta); background: var(--surface); font-size: var(--size-small); line-height: 1.5; }
+    .fix-box { padding: var(--space-2); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; margin-top: var(--space-1); font-family: var(--type-mono); font-size: var(--size-small); line-height: 1.6; white-space: pre-wrap; }
+    .design-md-output {  padding: var(--space-2); border: 1px solid var(--line);  background: var(--surface); border-radius: 4px; font-family: var(--type-mono); font-size: var(--size-small); line-height: 1.6; white-space: pre-wrap; margin-top: var(--space-2); display: none; }
+    .design-md-output.visible { display: block; }
+    .design-md-output h4 { font-family: var(--type-sans); font-size: var(--size-body); font-weight: 600; margin-bottom: var(--space-1); color: var(--ink); }
+    .spinner::after { content: ''; display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.6s linear infinite; margin-left: var(--space-1); vertical-align: middle; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .flash { animation: flash 0.3s ease; }
+    @keyframes flash { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .loader-text { font-family: var(--type-mono); font-size: var(--size-small); color: var(--ink-3); }
+    @media (max-width: 600px) { .result-header { flex-direction: column; align-items: flex-start; } }
+    .topnav-inline { display: flex; align-items: center;  justify-content: space-between; padding: var(--space-2) var(--gutter); border-bottom: 1px solid var(--line); }
+    .topnav-inline .brand { font-family: var(--type-sans); font-weight: 600; font-size: var(--size-body); color: var(--ink); text-decoration: none; }
+    .topnav-inline .brand:hover { color: var(--accent); }
+    .topnav-inline .tiny-nav { font-family: var(--type-sans); font-size: var(--size-small); color: var(--ink-3); }
+    .topnav-inline .tiny-nav a { color: var(--ink-2); text-decoration: none; }
+    .topnav-inline .tiny-nav a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav class="topnav-inline">
+  <a class="brand" href="https://w230.net" target="_blank" rel="noopener">TasteCI</a>
+  <span class="tiny-nav">
+    <a href="https://mustbesimo.github.io/taste-layer/" target="_blank">The Taste Layer</a>
+    <span style="margin: 0 6px; color: var(--line);">·</span>
+    <a href="https://taste-hq.vercel.app" target="_blank">tasteHQ</a>
+    <span style="margin: 0 6px; color: var(--line);">·</span>
+    <button class="btn" type="button" onclick="toggleTheme()" style="font-size: 12px; padding: 2px 10px;">☾</button>
+  </span>
+</nav>
+
+<div class="page-wrap">
+
+  <h1>CI/CD for taste.</h1>
+  <p class="subtitle">Score AI outputs against your taste criteria before they ship.</p>
+
+  <!-- API Key -->
+  <div class="api-key-bar">
+    <span class="status-dot" id="keyStatusDot"></span>
+    <input type="password" id="apiKeyInput" placeholder="Gemini API key (stored locally)" />
+    <button class="btn" id="saveKeyBtn" type="button">Set key</button>
+  </div>
+
+  <!-- Step 1: Brand Input -->
+  <div class="step-section active" id="step1">
+    <div class="step-label"><span class="step-number">1</span> Brand / Project Input</div>
+    <label for="brandInput">Paste brand notes, a project brief, a URL description, or your design direction</label>
+    <textarea id="brandInput" placeholder="e.g. Premium editorial fintech for high-net-worth individuals. Dark mode, Instrument Serif headlines, warm gold accents. Tone: authoritative but approachable. Think Stripe's precision meets Monocle's editorial voice. Banned: corporate jargon, stock photos, gradients, Comic Sans."></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="generateBtn" type="button">→ Generate DESIGN.md</button>
+    </div>
+    <div id="generateLoader" class="loader-text" style="display:none;margin-top: var(--space-1); display: none;">Generating taste criteria…<span class="spinner"></span></div>
+    <div class="design-md-output" id="designMdOutput"></div>
+  </div>
+
+  <!-- Step 2: Score Output -->
+  <div class="step-section" id="step2">
+    <div class="step-label"><span class="step-number">2</span> Output to Score</div>
+    <label for="outputInput">Paste an AI-generated output — copy, landing page text, prompt, or design description</label>
+    <textarea class="output-input" id="outputInput" placeholder="e.g. We leverage cutting-edge AI solutions to empower your financial journey with bespoke, data-driven insights that deliver unparalleled value and transformative growth across every touchpoint of the modern digital ecosystem."></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="scoreBtn" type="button" disabled>→ Run TasteCI</button>
+    </div>
+    <div id="scoreLoader" class="loader-text" style=";margin-top: var(--space-1); display: none;">Scoring output against taste criteria…<span class="spinner"></span></div>
+  </div>
+
+  <!-- Result -->
+  <div class="result-card" id="resultCard">
+    <h3 style="font-family: var(--type-sans); font-size: var(--size-small); font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 var(--space-2);">TasteCI Result</h3>
+    <div class="result-header">
+      <span class="result-score" id="resultScore">—</span>
+      <span class="result-verdict" id="resultVerdict">—</span>
+    </div>
+    <div class="result-section" id="violationsSection">
+      <h3>Hard Violations</h3>
+      <div id="violationsList"></div>
+    </div>
+    <div class="result-section" id="scoresSection">
+      <h3>Breakdown</h3>
+      <div id="breakdownList"></div>
+    </div>
+    <div class="result-section" id="fixSection">
+      <h3>Fix</h3>
+      <div class="fix-box" id="fixBox"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ========================================
+// TASTECI — App Logic
+// ========================================
+
+const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+
+// --- State ---
+let storedKey = localStorage.getItem('tasteci-gemini-key') || '';
+let currentDesignMd = '';
+let currentBreakdown = {};
+let currentViolations = [];
+let currentScore = 0;
+let currentVerdict = '';
+
+// --- DOM refs ---
+const keyInput = document.getElementById('apiKeyInput');
+const keyDot = document.getElementById('keyStatusDot');
+const brandInput = document.getElementById('brandInput');
+const outputInput = document.getElementById('outputInput');
+const generateBtn = document.getElementById('generateBtn');
+const scoreBtn = document.getElementById('scoreBtn');
+const generateLoader = document.getElementById('generateLoader');
+const scoreLoader = document.getElementById('scoreLoader');
+const designMdOut = document.getElementById('designMdOutput');
+const resultCard = document.getElementById('resultCard');
+const resultScore = document.getElementById('resultScore');
+const resultVerdict = document.getElementById('resultVerdict');
+const violationsList = document.getElementById('violationsList');
+const breakdownList = document.getElementById('breakdownList');
+const fixBox = document.getElementById('fixBox');
+
+// --- Init ---
+if (storedKey) { keyInput.value = storedKey; keyDot.className = 'status-dot set'; }
+
+// Helper: get API key
+function getKey() { return storedKey || keyInput.value.trim(); }
+
+// Toggle theme
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme') || 'light';
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('tasteci-theme', next);
+}
+
+// --- Save key ---
+document.getElementById('saveKeyBtn').addEventListener('click', () => {
+  const k = keyInput.value.trim();
+  if (k) { storedKey = k; localStorage.setItem('tasteci-gemini-key', k); keyDot.className = 'status-dot set'; }
+});
+
+// --- Call Gemini ---
+async function callGemini(prompt, systemInstruction) {
+  const key = getKey();
+  if (!key) throw new Error('No API key set.');
+  keyDot.className = 'status-dot ok';
+
+  const body = {
+    contents: [{ parts: [{ text: prompt }] }],
+    generationConfig: { temperature: 0.3, maxOutputTokens: 4096 }
+  };
+  if (systemInstruction) {
+    body.systemInstruction = { parts: [{ text: systemInstruction }] };
+  }
+
+  const res = await fetch(`${GEMINI_URL}?key=${key}`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error?.message || `HTTP ${res.status}`);
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  return text;
+}
+
+// --- Generate DESIGN.md ---
+generateBtn.addEventListener('click', async () => {
+  const input = brandInput.value.trim();
+  if (!input) { designMdOut.textContent = 'Paste a brand description first.'; designMdOut.className = 'design-md-output visible'; return; }
+
+  generateBtn.disabled = true;
+  generateLoader.style.display = '';
+
+  const prompt = `You are a taste engineer. Given a brand or project description, generate a structured DESIGN.md file.
+
+Brand/Project: ${input}
+
+Generate a DESIGN.md with these sections:
+
+## Identity
+What this system should feel like. 2-3 sentences of sensory description.
+
+## Non-Negotiables
+Rules that must never be violated. 3-5 specific hard rules.
+
+## Voice
+Tone, rhythm, vocabulary, sentence logic. 3-4 specific voice traits with examples.
+
+## Banned Patterns
+Words, structures, tropes, and visual habits to reject. 3-5 specific patterns.
+
+## Evaluation Rubric
+Five axes, each scored 0-20:
+- Specificity: does it say something concrete?
+- Signal density: information per word/pixel?
+- Brand fit: does it match the identity?
+- Technical accuracy: is it correct/functional?
+- Execution clarity: is it well-executed?
+
+## Pass Gate
+Outputs below 80 fail. Outputs with hard rule violations fail regardless of score.
+
+Return ONLY the DESIGN.md format — markdown, clean, no extra commentary before or after.`;
+
+  try {
+    const md = await callGemini(prompt, 'You are a taste engineer who produces structured DESIGN.md files. Output ONLY the DESIGN.md, nothing else.');
+    currentDesignMd = md;
+    designMdOut.innerHTML = md.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    designMdOut.className = 'design-md-output visible';
+
+    // Enable step 2
+    document.getElementById('step2').classList.add('active');
+    scoreBtn.disabled = false;
+
+    // Scroll to step 2
+    document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch (err) {
+    designMdOut.textContent = 'Error: ' + err.message;
+    designMdOut.className = 'design-md-output visible';
+  } finally {
+    generateBtn.disabled = false;
+    generateLoader.style.display = 'none';
+  }
+});
+
+// --- Run TasteCI ---
+scoreBtn.addEventListener('click', async () => {
+  const output = outputInput.value.trim();
+  if (!output) { alert('Paste an output to score first.'); return; }
+  if (!currentDesignMd) { alert('Generate a DESIGN.md first.'); return; }
+
+  scoreBtn.disabled = true;
+  scoreLoader.style.display = '';
+
+  const prompt = `You are a tasteCI evaluator. Score the following output against these DESIGN.md criteria.
+
+=== DESIGN.md ===
+${currentDesignMd}
+
+=== OUTPUT TO SCORE ===
+${output}
+
+Evaluate the output against the DESIGN.md's Evaluation Rubric (five axes, 0-20 each) and check for hard violations against the Non-Negotiables and Banned Patterns.
+
+Return a JSON object ONLY, no other text. Use this exact format:
+{
+  "score": <total 0-100>,
+  "violations": ["violation 1", "violation 2", ...],
+  "breakdown": {
+    "Specificity": <0-20>,
+    "Signal density": <0-20>,
+    "Brand fit": <0-20>,
+    "Technical accuracy": <0-20>,
+    "Execution clarity": <0-20>
+  },
+  "verdict": "PASS" or "FAIL",
+  "fix": "<specific rewrite or fix instruction, no more than 3 sentences>"
+}`;
+
+  try {
+    const raw = await callGemini(prompt, 'You are a precise evaluator. Output ONLY valid JSON, nothing else.');
+    const json = JSON.parse(raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim());
+
+    currentScore = json.score;
+    currentViolations = json.violations || [];
+    currentBreakdown = json.breakdown || {};
+    currentVerdict = json.verdict || 'FAIL';
+
+    // Render
+    resultScore.textContent = json.score + '/100';
+    resultVerdict.textContent = json.verdict;
+    resultVerdict.className = 'result-verdict ' + json.verdict;
+
+    // Violations
+    violationsList.innerHTML = '';
+    if (json.violations && json.violations.length) {
+      json.violations.forEach(v => {
+        const el = document.createElement('div');
+        el.className = 'violation';
+        el.textContent = v;
+        violationsList.appendChild(el);
+      });
+      document.getElementById('violationsSection').style.display = '';
+    } else {
+      document.getElementById('violationsSection').style.display = 'none';
+    }
+
+    // Breakdown
+    breakdownList.innerHTML = '';
+    if (json.breakdown) {
+      Object.entries(json.breakdown).forEach(([key, val]) => {
+        const el = document.createElement('div');
+        el.style.cssText = 'display: flex; justify-content: space-between; padding: 4px 0; font-size: var(--size-small); border-bottom: 1px solid var(--line-soft);';
+        el.innerHTML = `<span>${key}</span><span style="font-weight: 600;">${val}/20</span>`;
+        breakdownList.appendChild(el);
+      });
+    }
+
+    // Fix
+    fixBox.textContent = json.fix || 'No fix provided.';
+
+    // Show card
+    resultCard.className = 'result-card visible ' + (json.verdict === 'PASS' ? 'pass' : 'fail');
+    resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  } catch (err) {
+    fixBox.textContent = 'Error: ' + err.message;
+    resultCard.className = 'result-card visible fail';
+    resultVerdict.textContent = 'ERROR';
+    resultScore.textContent = '—';
+  } finally {
+    scoreBtn.disabled = false;
+    scoreLoader.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>
